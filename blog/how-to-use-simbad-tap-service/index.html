@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Semyeong Oh">
+<meta name="description" content="The Table Access Protocol (TAP) is a way to access astronomical databases using the Astronomical Data Query Language (ADQL). The ADQL is a variant of SQL that supports querying grammar for astronomical operations.
+Simbad is a database for astronomical objects that is updated constantly from the literature. It can be accessed by various methods including TAP.
+I recently wanted to
+ retrieve all related bibliography for a set of objects get all radial velocity measurements for a set of objects  It turns out this is fairly simple with pyvo and ADQL.">
+
+<meta property="og:title" content="How to use Simbad TAP Service" />
+<meta property="og:description" content="The Table Access Protocol (TAP) is a way to access astronomical databases using the Astronomical Data Query Language (ADQL). The ADQL is a variant of SQL that supports querying grammar for astronomical operations.
+Simbad is a database for astronomical objects that is updated constantly from the literature. It can be accessed by various methods including TAP.
+I recently wanted to
+ retrieve all related bibliography for a set of objects get all radial velocity measurements for a set of objects  It turns out this is fairly simple with pyvo and ADQL." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://smoh.space/blog/how-to-use-simbad-tap-service/" /><meta property="article:published_time" content="2017-04-02T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-04-02T00:00:00&#43;00:00"/>
+
+
+<title>
+
+
+     How to use Simbad TAP Service 
+
+</title>
+<link rel="canonical" href="http://smoh.space/blog/how-to-use-simbad-tap-service/">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="http://smoh.space/css/reset.css?t=2018-10-15%2019%3a28%3a39.634303%20%2b0100%20BST%20m%3d%2b0.137804287">
+    <link rel="stylesheet" href="http://smoh.space/css/pygments.css?t=2018-10-15%2019%3a28%3a39.634303%20%2b0100%20BST%20m%3d%2b0.137804287">
+    <link rel="stylesheet" href="http://smoh.space/css/main.css?t=2018-10-15%2019%3a28%3a39.634303%20%2b0100%20BST%20m%3d%2b0.137804287">
+    
+        <link rel="stylesheet" href="http://smoh.space/css/override.css?t=2018-10-15%2019%3a28%3a39.634303%20%2b0100%20BST%20m%3d%2b0.137804287">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="http://smoh.space/img/leaf.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+            <a href="http://smoh.space/"><div class="name">Semyeong Oh</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-research"><a href="http://smoh.space/research/"><span>Research</span></a></li>
+                    
+                        <li class="nav-blog"><a href="http://smoh.space/blog/"><span>Blog</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="https://github.com/smoh" target="_blank" rel="noopener"><img class="icon" src="http://smoh.space/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="https://www.linkedin.com/in/semyeong-oh-819539b9" target="_blank" rel="noopener"><img class="icon" src="http://smoh.space/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:semyeong@astro.princeton.edu"><img class="icon" src="http://smoh.space/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="http://smoh.space/index.xml"><img class="icon" src="http://smoh.space/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    How to use Simbad TAP Service
+
+</div>
+
+                    <div class="initials"><a href="http://smoh.space">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sun Apr 2 2017 00:00:00 UTC'>Apr 2, 2017</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>5 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>The Table Access Protocol (<a href="http://www.ivoa.net/documents/TAP/">TAP</a>) is a way to access astronomical databases using the Astronomical Data Query Language (ADQL). The <a href="http://www.ivoa.net/documents/latest/ADQL.html">ADQL</a> is a variant of SQL that supports querying grammar for astronomical operations.</p>
+
+<p><a href="http://simbad.u-strasbg.fr/simbad/">Simbad</a> is a database for astronomical objects that is updated constantly from the literature. It can be accessed by various methods including TAP.</p>
+
+<p>I recently wanted to</p>
+
+<ul>
+<li>retrieve all related bibliography for a set of objects</li>
+<li>get all radial velocity measurements for a set of objects</li>
+</ul>
+
+<p>It turns out this is fairly simple with <a href="http://pyvo.readthedocs.io">pyvo</a> and ADQL.</p>
+
+<p>Pyvo provides a collection of python modules related to <a href="https://en.wikipedia.org/wiki/Virtual_observatory">Virtual observatory</a>. For Simbad, we can simply create an instance of its <code>vo.dal.TAPService</code> class with the <code>baseurl</code> set to TAP endpoint.</p>
+
+<pre><code class="language-python">%matplotlib inline
+import matplotlib.pyplot as plt
+plt.style.use(&quot;seaborn-talk&quot;)
+import pandas as pd
+import numpy as np
+
+from astropy.table import Table
+import pyvo as vo
+</code></pre>
+
+<pre><code class="language-python">simbadtap = vo.dal.TAPService(&quot;http://simbad.u-strasbg.fr/simbad/sim-tap&quot;)
+</code></pre>
+
+<p>Let&rsquo;s see all the available tables.</p>
+
+<pre><code class="language-python"># get all tables
+# tables method of TAPService parses the response of /tables,
+# but it will result in exception due to a possible bug in astropy vo
+# but you can also just query the database for this info
+result = simbadtap.run_sync(&quot;select * from TAP_SCHEMA.tables where schema_name not like 'TAP_SCHEMA'&quot;)
+</code></pre>
+
+<pre><code class="language-python">print(&quot;number of tables available = {:d}&quot;.format(len(result.table)))
+result.table[:5]['table_name','description']
+</code></pre>
+
+<pre><code>number of tables available = 42
+</code></pre>
+
+<p>&lt;Table masked=True length=5&gt;
+<table id="table4619165144" class="table-striped table-bordered table-condensed">
+<thead><tr><th>table_name</th><th>description</th></tr></thead>
+<thead><tr><th>object</th><th>object</th></tr></thead>
+<tr><td>basic</td><td>General data about an astronomical object</td></tr>
+<tr><td>otypes</td><td>List of all object types associated with an object</td></tr>
+<tr><td>ids</td><td>all names concatenated with pipe</td></tr>
+<tr><td>alltypes</td><td>all object types concatenated with pipe</td></tr>
+<tr><td>otypedef</td><td>all names and definitions for the object types</td></tr>
+</table></p>
+
+<h2 id="get-all-velocity-measurements">Get all velocity measurements</h2>
+
+<p>The relevant table for RV measurements is <code>mesVelocities</code>. We also need <code>ident</code> table which has
+two columns, <code>oidref</code> and <code>id</code> where <code>oidref</code> is unique internally, and <code>id</code> is all possible known
+names of sources. we use <code>oidref</code> to crossmatch tables. We can first check what columns are in <code>mesVelocities</code> and <code>ident</code> tables.</p>
+
+<pre><code class="language-python">def pprint_columns_description(tablename):
+    &quot;&quot;&quot;Pretty print column description table&quot;&quot;&quot;
+    rows = []
+    for col in simbadtap.run_sync(
+        &quot;select top 0 * from {}&quot;.format(tablename)).table.itercols():
+        rows.append([col.name, col.dtype.str, col.description])
+    tt = Table(rows=rows, names=['colname', 'dtype','description'])
+    return tt
+</code></pre>
+
+<pre><code class="language-python">pprint_columns_description(&quot;ident&quot;)
+</code></pre>
+
+<p>&lt;Table length=2&gt;
+<table id="table4540428128" class="table-striped table-bordered table-condensed">
+<thead><tr><th>colname</th><th>dtype</th><th>description</th></tr></thead>
+<thead><tr><th>str6</th><th>str3</th><th>str26</th></tr></thead>
+<tr><td>id</td><td>|O</td><td>Identifier</td></tr>
+<tr><td>oidref</td><td>&lt;i8</td><td>Object internal identifier</td></tr>
+</table></p>
+
+<pre><code class="language-python">pprint_columns_description(&quot;mesVelocities&quot;)
+</code></pre>
+
+<p>&lt;Table length=20&gt;
+<table id="table4539563760" class="table-striped table-bordered table-condensed">
+<thead><tr><th>colname</th><th>dtype</th><th>description</th></tr></thead>
+<thead><tr><th>str14</th><th>str3</th><th>str71</th></tr></thead>
+<tr><td>bibcode</td><td>|O</td><td>measurement bibcode</td></tr>
+<tr><td>d</td><td>|S1</td><td>&apos;D&apos; if the resolution is a conversion from the dispersion</td></tr>
+<tr><td>meanError</td><td>&lt;f4</td><td>sigma(Value)</td></tr>
+<tr><td>meanError_prec</td><td>&lt;i2</td><td>Precision (# of decimal positions) associated with the column meanError</td></tr>
+<tr><td>mespos</td><td>&lt;i2</td><td>Position of a measurement in a list of measurements</td></tr>
+<tr><td>nature</td><td>|O</td><td>nature of the measurement</td></tr>
+<tr><td>nbmes</td><td>&lt;i2</td><td>Number of measurements</td></tr>
+<tr><td>obsdate</td><td>&lt;f8</td><td>Observation date</td></tr>
+<tr><td>obsdate_prec</td><td>&lt;i2</td><td>Precision (# of decimal positions) associated with the column obsdate</td></tr>
+<tr><td>oidref</td><td>&lt;i8</td><td>Object internal identifier</td></tr>
+<tr><td>origin</td><td>|O</td><td>Origin of the radial velocity</td></tr>
+<tr><td>qual</td><td>|S1</td><td>Quality</td></tr>
+<tr><td>quality</td><td>|S1</td><td>Quality</td></tr>
+<tr><td>remark</td><td>|S1</td><td>colon is uncertain question mark is questionable</td></tr>
+<tr><td>remarks</td><td>|O</td><td>Remarks</td></tr>
+<tr><td>resolution</td><td>&lt;i4</td><td>Resolution</td></tr>
+<tr><td>velType</td><td>|O</td><td>velocity type (v, z or cz)</td></tr>
+<tr><td>velValue</td><td>&lt;f8</td><td>Velocity</td></tr>
+<tr><td>velValue_prec</td><td>&lt;i2</td><td>Precision (# of decimal positions) associated with the column velValue</td></tr>
+<tr><td>wdomain</td><td>|O</td><td>Wavelength domain (Rad,mm,IR,Opt,UV,XRay,Gam)</td></tr>
+</table></p>
+
+<p>We will query stars by their HIP or TYC identifiers. For this, we make a table with one column (<code>name</code>), and upload this in order to crossmatch in VOTable format.</p>
+
+<pre><code class="language-python">identable = Table.read(&quot;test.xml&quot;, format='votable')
+identable[:3]
+</code></pre>
+
+<p>&lt;Table masked=True length=3&gt;
+<table id="table4540675576" class="table-striped table-bordered table-condensed">
+<thead><tr><th>name</th></tr></thead>
+<thead><tr><th>str15</th></tr></thead>
+<tr><td>TYC 8036-1001-1</td></tr>
+<tr><td>TYC 1772-508-1</td></tr>
+<tr><td>TYC 2911-1339-1</td></tr>
+</table></p>
+
+<p>Grab <code>oidref</code> from <code>ident</code> table, and query <code>mesVelocities</code>.</p>
+
+<pre><code class="language-python">query = &quot;&quot;&quot;
+SELECT t.name,bibcode, nbmes, obsdate, qual, quality,
+    velType, velValue, velValue_prec, remark, remarks, ident.oidref
+FROM TAP_UPLOAD.mytable as t
+    JOIN ident ON t.name = ident.id
+    JOIN mesVelocities ON mesVelocities.oidref = ident.oidref
+&quot;&quot;&quot;
+</code></pre>
+
+<pre><code class="language-python">%%time
+result = simbadtap.run_sync(query, uploads={&quot;mytable&quot;:('inline', 'test.xml')})
+</code></pre>
+
+<pre><code>CPU times: user 178 ms, sys: 11 ms, total: 189 ms
+Wall time: 3.56 s
+</code></pre>
+
+<p>Even for about 10k stars, this is very fast. We can access <code>astropy.table.Table</code> instance of the result as <code>result.table</code>. Better yet, because I know there are multiple measurements for some stars, I can convert it to <code>pandas.DataFrame</code> for further inspection.</p>
+
+<pre><code class="language-python">dfrv = result.table.to_pandas()
+# decode all bytestrings
+dfrv = dfrv.apply(lambda x: x.str.decode('utf-8') if x.dtype==object else x)
+</code></pre>
+
+<pre><code class="language-python">dfrv.groupby(&quot;quality&quot;)['name'].describe()
+</code></pre>
+
+<pre><code>quality        
+         count                 744
+         unique                438
+         top        TYC 2342-544-1
+         freq                   14
+A        count                 508
+         unique                360
+         top            HIP 107362
+         freq                    6
+B        count                 864
+         unique                709
+         top       TYC 6166-1405-1
+         freq                    4
+C        count                 382
+         unique                313
+         top        TYC 9344-293-1
+         freq                    3
+D        count                  89
+         unique                 84
+         top       TYC 8966-1241-1
+         freq                    3
+E        count                  31
+         unique                 30
+         top            HIP 109388
+         freq                    2
+Name: name, dtype: object
+</code></pre>
+
+<p>I see that there are quite a few stars with multiple quality A measurements. Let&rsquo;s see if they agree.</p>
+
+<pre><code class="language-python">rvA = dfrv.loc[dfrv.quality == 'A'].groupby(&quot;name&quot;)
+</code></pre>
+
+<pre><code class="language-python"># see if multiple quality A measurements agree with each other
+# make sure bibcode for the measurements are different
+rvAmulti = rvA.filter(lambda x:x.bibcode.unique().size&gt;1)
+print(rvAmulti.name.unique().size)
+</code></pre>
+
+<pre><code>96
+</code></pre>
+
+<pre><code class="language-python"># undersample for presentation
+rvAmulti.iloc[::10].boxplot(&quot;velValue&quot;, &quot;name&quot;, rot=90);
+</code></pre>
+
+<p><img src="http://smoh.space/img/simbad_tap_examples_25_0.png" alt="png" /></p>
+
+<p>..and they do for the most part!</p>
+
+<h2 id="get-all-bibliographies">Get all bibliographies</h2>
+
+<p>Same goes for querying all bibliographies related to a set of objects.
+This time, we need to query <code>ref</code> and also need <code>has_ref</code> in order to crossmatch <code>oidref</code> with <code>oidbibref</code>, which is cross-identified with <code>ref.oidbib</code>.</p>
+
+<pre><code class="language-python">pprint_columns_description(&quot;ref&quot;)
+</code></pre>
+
+<p>&lt;Table length=10&gt;
+<table id="table4542089648" class="table-striped table-bordered table-condensed">
+<thead><tr><th>colname</th><th>dtype</th><th>description</th></tr></thead>
+<thead><tr><th>str9</th><th>str3</th><th>str28</th></tr></thead>
+<tr><td>bibcode</td><td>|O</td><td>Bibcode</td></tr>
+<tr><td>doi</td><td>|O</td><td>DOI designation</td></tr>
+<tr><td>journal</td><td>|O</td><td>Abbreviation for the journal</td></tr>
+<tr><td>last_page</td><td>&lt;i4</td><td>Last page number</td></tr>
+<tr><td>nbobject</td><td>&lt;i4</td><td>Number of objects studied in</td></tr>
+<tr><td>oidbib</td><td>&lt;i8</td><td>Bibcode internal identifier</td></tr>
+<tr><td>page</td><td>&lt;i4</td><td>page number</td></tr>
+<tr><td>title</td><td>|O</td><td>Title</td></tr>
+<tr><td>volume</td><td>&lt;i4</td><td>volume number</td></tr>
+<tr><td>year</td><td>&lt;i2</td><td>Publication year</td></tr>
+</table></p>
+
+<pre><code class="language-python">pprint_columns_description('has_ref')
+</code></pre>
+
+<p>&lt;Table length=5&gt;
+<table id="table4579551720" class="table-striped table-bordered table-condensed">
+<thead><tr><th>colname</th><th>dtype</th><th>description</th></tr></thead>
+<thead><tr><th>str10</th><th>str3</th><th>str33</th></tr></thead>
+<tr><td>obj_freq</td><td>&lt;i2</td><td>flag</td></tr>
+<tr><td>oidbibref</td><td>&lt;i8</td><td>Bibcode internal identifier</td></tr>
+<tr><td>oidref</td><td>&lt;i8</td><td>Object internal identifier</td></tr>
+<tr><td>ref_flag</td><td>&lt;i2</td><td>flag</td></tr>
+<tr><td>ref_raw_id</td><td>|O</td><td>id like it appears in the article</td></tr>
+</table></p>
+
+<pre><code class="language-python">query = &quot;&quot;&quot;
+SELECT t.name, bibcode, journal, title,  year, volume, doi
+FROM TAP_UPLOAD.mytable as t
+    JOIN ident ON t.name = ident.id
+    JOIN has_ref ON has_ref.oidref = ident.oidref
+    JOIN ref ON ref.oidbib = has_ref.oidbibref
+&quot;&quot;&quot;
+</code></pre>
+
+<p>The ipynb file for this post is available <a href="https://github.com/smoh/notebook/blob/master/simbad_tap_examples.ipynb">here</a>.</p>
+
+                <br>
+		<p><a href="http://smoh.space/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-37308551-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+</body>
+</html>
+
