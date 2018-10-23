@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Semyeong Oh</title>
-    <link>https://smoh.github.io/blog/</link>
+    <link>smoh.space/blog/</link>
     <description>Recent content on Semyeong Oh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 27 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://smoh.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="smoh.space/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to template a LaTeX paper with cookiecutter</title>
-      <link>https://smoh.github.io/blog/how-to-template-a-latex-paper-with-cookiecutter/</link>
+      <link>smoh.space/blog/how-to-template-a-latex-paper-with-cookiecutter/</link>
       <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://smoh.github.io/blog/how-to-template-a-latex-paper-with-cookiecutter/</guid>
+      <guid>smoh.space/blog/how-to-template-a-latex-paper-with-cookiecutter/</guid>
       <description>Cookiecutter is a command line utility written in python to create templated files and directory structures.
 Why? When I finally have something to write about as a paper to be submitted to a journal, I found myself copying the files from my previous paper again and again, delete much of it (contents of the old paper), and modify some parts for the new paper. Of course, it&amp;rsquo;s not that hard to do that everytime, but cookiecutter is a useful tool to streamline this.</description>
     </item>
     
     <item>
       <title>How to use Simbad TAP Service</title>
-      <link>https://smoh.github.io/blog/how-to-use-simbad-tap-service/</link>
+      <link>smoh.space/blog/how-to-use-simbad-tap-service/</link>
       <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://smoh.github.io/blog/how-to-use-simbad-tap-service/</guid>
+      <guid>smoh.space/blog/how-to-use-simbad-tap-service/</guid>
       <description>The Table Access Protocol (TAP) is a way to access astronomical databases using the Astronomical Data Query Language (ADQL). The ADQL is a variant of SQL that supports querying grammar for astronomical operations.
 Simbad is a database for astronomical objects that is updated constantly from the literature. It can be accessed by various methods including TAP.
 I recently wanted to
@@ -35,10 +35,10 @@ I recently wanted to
     
     <item>
       <title>How to give a research talk</title>
-      <link>https://smoh.github.io/blog/how-to-give-a-research-talk/</link>
+      <link>smoh.space/blog/how-to-give-a-research-talk/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://smoh.github.io/blog/how-to-give-a-research-talk/</guid>
+      <guid>smoh.space/blog/how-to-give-a-research-talk/</guid>
       <description>Here is my checklist for giving a research talk.
 The goal is to get the message across. The message is not information, but the interpretation of that information under certain context to specific audience. Great talks provoke the audience to take actions.
 Message first The first thing to do when preparing a talk is to decide the content of the talk. I find it helpful to answer the following questions.</description>
@@ -46,10 +46,10 @@ Message first The first thing to do when preparing a talk is to decide the conte
     
     <item>
       <title>Co-moving stars in Gaia DR 1</title>
-      <link>https://smoh.github.io/blog/co-moving-stars-in-gaia-dr-1/</link>
+      <link>smoh.space/blog/co-moving-stars-in-gaia-dr-1/</link>
       <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://smoh.github.io/blog/co-moving-stars-in-gaia-dr-1/</guid>
+      <guid>smoh.space/blog/co-moving-stars-in-gaia-dr-1/</guid>
       <description></description>
     </item>
     
