@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>statistics on smoh.space</title>
+    <link>https://smoh.space/tags/statistics/</link>
+    <description>Recent content in statistics on smoh.space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://smoh.space/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>Biased coins and truncated data</title>
+      <link>https://smoh.space/blog/coinflips/</link>
+      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://smoh.space/blog/coinflips/</guid>
+      <description>I was inspired by a recent paper by Boubert &amp;amp; Everall 2020 to consider the inference of the probability of a biased coin.
+The problem is the following: given a table of $N$ coin flip experiments where you have, for each experiment, the number of times it was flipped and the number of times it showed heads, we want to infer the probability that this coin shows head.
+Let&amp;rsquo;s call</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>How to use Simbad TAP Service</title>
+      <link>https://smoh.space/blog/how-to-use-simbad-tap-service/</link>
+      <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://smoh.space/blog/how-to-use-simbad-tap-service/</guid>
+      <description>The Table Access Protocol (TAP) is a way to access astronomical databases using the Astronomical Data Query Language (ADQL). The ADQL is a variant of SQL that supports querying grammar for astronomical operations.
+Simbad is a database for astronomical objects that is updated constantly from the literature. It can be accessed by various methods including TAP.
+I recently wanted to
+ retrieve all related bibliography for a set of objects get all radial velocity measurements for a set of objects  It turns out this is fairly simple with pyvo and ADQL.</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>How to give a research talk</title>
+      <link>https://smoh.space/blog/how-to-give-a-research-talk/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://smoh.space/blog/how-to-give-a-research-talk/</guid>
+      <description>Here is my checklist for giving a research talk.
+The goal is to get the message across. The message is not information, but the interpretation of that information under certain context to specific audience. Great talks provoke the audience to take actions.
+Message first The first thing to do when preparing a talk is to decide the content of the talk. I find it helpful to answer the following questions.</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Co-moving stars in Gaia DR 1</title>
+      <link>https://smoh.space/blog/co-moving-stars-in-gaia-dr-1/</link>
+      <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://smoh.space/blog/co-moving-stars-in-gaia-dr-1/</guid>
+      <description></description>
+    </item>
+    
+    
+  </channel>
+</rss>
