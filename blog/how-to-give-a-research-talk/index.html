@@ -1,156 +1,315 @@
 <!DOCTYPE html>
-<html lang="en-US">
-
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
-<meta name="author" content="Semyeong Oh">
-<meta name="description" content="Here is my checklist for giving a research talk.
-The goal is to get the message across. The message is not information, but the interpretation of that information under certain context to specific audience. Great talks provoke the audience to take actions.
-Message first The first thing to do when preparing a talk is to decide the content of the talk. I find it helpful to answer the following questions.">
-
-<meta property="og:title" content="How to give a research talk" />
-<meta property="og:description" content="Here is my checklist for giving a research talk.
-The goal is to get the message across. The message is not information, but the interpretation of that information under certain context to specific audience. Great talks provoke the audience to take actions.
-Message first The first thing to do when preparing a talk is to decide the content of the talk. I find it helpful to answer the following questions." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://smoh.space/blog/how-to-give-a-research-talk/" /><meta property="article:published_time" content="2017-01-07T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2017-01-07T00:00:00&#43;00:00"/>
-
-
-<title>
-
-
-     How to give a research talk 
-
-</title>
-<link rel="canonical" href="https://smoh.space/blog/how-to-give-a-research-talk/">
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
-
-
-
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
-
-
-
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Semyeong Oh&#39;s personal website">
     
-    <link rel="stylesheet" href="https://smoh.space/css/reset.css?t=2018-10-24%2000%3a07%3a51.50304%20%2b0100%20BST%20m%3d%2b0.175858671">
-    <link rel="stylesheet" href="https://smoh.space/css/pygments.css?t=2018-10-24%2000%3a07%3a51.50304%20%2b0100%20BST%20m%3d%2b0.175858671">
-    <link rel="stylesheet" href="https://smoh.space/css/main.css?t=2018-10-24%2000%3a07%3a51.50304%20%2b0100%20BST%20m%3d%2b0.175858671">
-    
-        <link rel="stylesheet" href="https://smoh.space/css/override.css?t=2018-10-24%2000%3a07%3a51.50304%20%2b0100%20BST%20m%3d%2b0.175858671">
-    
+    <link rel="shortcut icon" href="https://smoh.space/favicon.ico">
+    <style type="text/css" media="screen">
+        *, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    color: #313a3d;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #ebebeb;
+        background: #121212;
+    }
+}
+
+header#banner {
+    margin: 25px 0;
+}
+
+header#banner a {
+    color: #313a3d;
+    text-decoration: none;
+}
+
+header#banner a:hover {
+    text-decoration: underline;
+}
+
+header#banner h2 {
+    display: inline;
+    font-size: 21px;
+    font-size: 2.1rem;
+    margin: 0 8px 0 0;
+}
+
+header#banner nav {
+    display: inline-block;
+}
+
+header#banner nav ul {
+    list-style-type: none;
+    font-size: 1.05em;
+    text-transform: lowercase;
+    margin: 0;
+    padding: 0;
+}
+
+header#banner nav ul li {
+    display: inline;
+    margin: 0 3px;
+}
+
+header#banner nav ul li a {
+    color: #454545;
+}
+
+@media (prefers-color-scheme: dark) {
+    header#banner a {
+        color: #e0e0e0;
+        text-decoration: none;
+    }
+
+    header#banner nav ul li a {
+        color: #cccccc;
+    }
+}
+
+main#content a {
+    color: #007dfa;
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content a {
+        color: #00b1ed;
+    }
+}
+
+main#content a:hover {
+    text-decoration: underline;
+}
+
+main#content p {
+    color: #394548;
+    margin: 16px 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content p {
+        color: #f5f5f5;
+    }
+}
+
+main#content h1,
+main#content h2,
+main#content h3,
+main#content h4,
+main#content h5,
+main#content h6 {
+    margin-bottom: 0.5em;
+    line-height: 1.15;
+}
+
+main#content h1 + p,
+main#content h2 + p,
+main#content h3 + p,
+main#content h4 + p,
+main#content h5 + p,
+main#content h6 + p {
+    margin-top: 5px;
+}
+
+main#content h3 {
+    font-size: 19px;
+    font-size: 1.9rem;
+}
+
+/* index.html styles */
+main#content ul#posts {
+    list-style-type: none;
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin-top: 0;
+    padding: 0;
+}
+
+main#content ul#posts li {
+    margin: 5px 0;
+    padding: 0;
+}
+
+main#content ul#posts small {
+    font-size: 0.8em;
+    color: #767676;
+    margin-left: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content ul#posts small {
+        color: #a7a7a7;
+    }
+}
+
+main#content ul#posts li a {
+    text-decoration: none;
+}
+
+main#content ul#posts li a:hover {
+    color: #369aff;
+}
+
+main#content ul#posts li a:hover small {
+    color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content ul#posts li a:hover {
+        color: #21c7ff;
+    }
+}
+
+/* single.html styles */
+main#content header#post-header h1 {
+    display: block;
+    font-size: 23px;
+    font-size: 2.3rem;
+    line-height: 1.15;
+}
+
+main#content header#post-header time {
+    display: block;
+    font-size: 0.85em;
+    color: #767676;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content header#post-header time {
+        color: #a7a7a7;
+    }
+}
+
+main#content img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+main#content code,
+main#content pre {
+    font-family: 'Menlo', monospace;
+}
+
+main#content code {
+    font-size: 0.96em;
+    padding: 0 5px;
+}
+
+main#content pre {
+    display: block;
+    overflow-x: auto;
+    font-size 14px;
+    font-size: 1.4rem;
+    white-space: pre;
+    margin: 20px 0;
+    padding: 1.5rem 1.5rem;
+    line-height: 1.4;
+}
+
+main#content pre code {
+    padding: 0;
+}
+
+footer#footer {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #949494;
+    margin: 40px 0;
+}
 
 
+div.note {
+    border-left: 4px solid rgb(233, 56, 90);
+    padding-left: 10px;
+    background-color: rgb(255, 238, 241);
+    width: 95%;
+    line-height: 2em;
+}
+    </style>
 
+    <style type="text/css" media="(min-width: 770px)">
+        body {
+    width: 750px;
+    line-height: 1.5;
+}
 
-<link rel="shortcut icon"
+/* index.html styles */
+header#banner h2 {
+    font-size: 25px;
+    font-size: 2.5rem;
+}
 
-    href="https://smoh.space/img/leaf.ico"
+main#content h3 {
+    font-size: 20px;
+    font-size: 2rem;
+}
 
->
+main#content ul#posts {
+    font-size: 18px;
+    font-size: 1.8rem;
+}
 
+/* single.html styles */
+main#content header#post-header h1 {
+    font-size: 26px;
+    font-size: 2.6rem;
+}
 
+main#content img {
+    max-width: 108%;
+    margin-left: -4%;
+}
 
+main#content pre {
+    width: 108%;
+    margin-left: -4%;
+    padding: 1.5rem 2.2rem;
+}
 
+    </style>
+
+    <link rel="stylesheet" href="https://smoh.space/css/syntax.min.css">
+    <title>How to give a research talk</title>
 </head>
-
-
-<body lang="en">
-
-<section class="header">
-    <div class="container">
-        <div class="content">
+<body><header id="banner">
+    <h2><a href="https://smoh.space">smoh.space</a></h2>
+    <nav>
+        <ul>
             
-            <a href="https://smoh.space/"><div class="name">Semyeong Oh</div></a>
             
-            <nav>
-                <ul>
-                    
-                </ul>
-            </nav>
-        </div>
-    </div>
-</section>
-
-<section class="icons">
-    <div class="container">
-        <div class="content">
-
-        
-            <a href="https://github.com/smoh" target="_blank" rel="noopener"><img class="icon" src="https://smoh.space/img/github.svg" alt="github" /></a>
-        
-
-        
-
-        
-
-        
-            <a href="https://www.linkedin.com/in/semyeong-oh-819539b9" target="_blank" rel="noopener"><img class="icon" src="https://smoh.space/img/linkedin.svg" alt="linkedin" /></a>
-        
-
-        
-
-        
-
-        
-            <a href="mailto:soh@ast.cam.ac.uk"><img class="icon" src="https://smoh.space/img/email.svg" alt="email" /></a>
-        
-
-        
-            <a href="https://smoh.space/index.xml"><img class="icon" src="https://smoh.space/img/rss.svg" alt="rss" /></a>
-        
-        
-        </div>
-    </div>
-</section>
-
-
-<section class="main post non-narrow zero-top-spacing">
-    <div class="container">
-        <div class="content">
-            <div class="front-matter">
-                <div class="title-container">
-                    <div class="page-heading">
-
-    How to give a research talk
-
-</div>
-
-                    <div class="initials"><a href="https://smoh.space">ad</a></div>
-                </div>
-                <div class="meta">
-                    
-                    <div class="date" title='Sat Jan 7 2017 00:00:00 UTC'>Jan 7, 2017</div>
-                    
-                    
-		    <div class="reading-time"><div class="middot"></div>5 minutes read</div>
-                    
-                </div>
-            </div>
-            <div class="markdown">
-                
-
-<p>Here is my checklist for giving a research talk.</p>
-
+            <li>
+                <a href="https://smoh.space/posts/">blog</a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>How to give a research talk</h1><time>January 7, 2017</time></header><p>Here is my checklist for giving a research talk.</p>
 <p>The goal is to <strong>get the message across</strong>. The message is not information, but the interpretation of that information under certain context to specific audience. Great talks provoke the audience to take actions.</p>
-
 <h2 id="message-first">Message first</h2>
-
 <p>The first thing to do when preparing a talk is to decide the content of the talk. I find it helpful to answer the following questions.</p>
-
 <ul>
 <li>What is the one main message of my talk in a single sentence?</li>
 <li>What do I want to talk about?</li>
@@ -161,35 +320,20 @@ Message first The first thing to do when preparing a talk is to decide the conte
 <li>What does it mean?</li>
 <li>Who will be my audience? How much background knowledge do I expect them to have?</li>
 </ul>
-
 <p>Come up with an outline of your talk. Make the structure of your talk enhance the message.</p>
-
 <p>As good research does, a good talk has a good story. Come up with a narrative of the talk.</p>
-
 <p>Spend some time thinking about <em>transitions</em> between sections. Why does it make sense to move onto B after discussing A?</p>
-
 <p>Spend extra time on motivations. Why should someone care at all? I find other people’s talk interesting when I understand why they did what they did.</p>
-
 <h2 id="slides">Slides</h2>
-
 <p>Slides are great for <em>effective visual redundancy</em>. What the audience sees on the screen should unobtrusively complement what they hear.</p>
-
 <p><strong>Slides are not your talk.</strong> Do not give a talk of explaining your slides. In the worst case scenario that you cannot use slides, you should still be able to give your talk be it 50-minute lecture or 5-minute brief. This would also be my opposition to some people saying that your slides should be a standalone document that can be understood without the talk. It is definitely not the case!</p>
-
 <p>Choose a color palette for your talk, and stick with it. Consistent use of color throughout the slides ties them together. It’s the same reason why we want to use a good color scheme on our text editors. Google color palettes or color schemes — there are many tools and palettes available on-line. One thing, though, is that no matter how good a color palette is, it can still be of some awful colors for presentations, so you want to be aware.</p>
-
 <p>Colors are also good for dividing sections. Change of color can be an intuitive signal to your audience that you are moving on to a new topic.</p>
-
 <p>If you want to emphasize something, increase the color contrast.</p>
-
 <p>Likewise, choose a typography palette and stick with it.</p>
-
 <p>Use images and diagrams instead of bullet list and tables.</p>
-
 <p>No more than five items in a bulleted list. If more, group things together. No more than two lines of text per item. Visual communication is global. The goal is that the audience grasps what they see as they see it.</p>
-
 <p>Maximize the signal-to-noise ratio:</p>
-
 <ul>
 <li>Minimize the noise, and get your audience’s attention on the right thing. ex) transitions, crazy moving laser pointer, logos, slide numbers</li>
 <li>Repeat. Redundancy enhances the signal. Expect losses from other factors that you cannot control. Slides are great for visual redundancy.</li>
@@ -199,97 +343,69 @@ Message first The first thing to do when preparing a talk is to decide the conte
 <li><strong>Title should be the message in a full sentence.</strong> Instead of putting the what in the title, the most prominent area of the slide, like Results or Model which often than not is obvious, put the message (the answer to “So what?”) in a full sentence.</li>
 <li>Same goes for plots. Minimize the noise and remove anything that’s not necessary. Visually connect the plot to the message of the plot not in a separate bullet list.</li>
 </ul>
-
 <p><strong>Prepare for technical failures.</strong> You’ve seen them happen. Prepare a PDF version of your presentation. Make sure it is up-do-date with what you were editing. If your talk contains movies and animations, prepare them in separate files, and be ready to play outside of the presentation app in case it fails.</p>
-
 <p>Give credit where credit is due. Acknowledge your collaborators. Add appropriate references for images and figures.</p>
-
 <h3 id="tools-for-making-slides">Tools for making slides</h3>
-
 <ul>
 <li>Keynote, Google Docs etc.:
-
 <ul>
 <li>easy to manipulate (WYSIWYG)</li>
 <li>maximum freedom</li>
 <li>requires fair amount of fine tuning even with “master” slides.</li>
 <li>no support for LaTeX equations</li>
 <li>presenter mode</li>
-</ul></li>
+</ul>
+</li>
 <li>Web-based tools:
-
 <ul>
 <li>you code your talk like LaTeX but they are prettier</li>
 <li>comes with a learning curve</li>
 <li>easy to add color-coded code snippets or LaTeX math using <a href="https://www.mathjax.org">MathJax</a></li>
 <li>javascript tricks</li>
 <li>many mature enough to have presenter mode (reveal.js, remark.js)</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="practice">Practice</h2>
-
 <p>On each slide, do I know what the next slide is? How do I want to transition from this one?</p>
-
 <p>Do not go overtime. Have an abort strategy.</p>
-
 <p>Be aware of verbal tics. You know they are annoying.</p>
-
 <p>What questions can I anticipate? How do I want to respond to those questions? Prepare supporting slides if needed.</p>
-
 <h2 id="deliver">Deliver</h2>
-
 <p>Repeat and recap the question for the entire audience.</p>
-
 <p>It’s fine to take the time to think about a question.</p>
-
 <p>Answer to the point. Do not beat around the bush.</p>
-
 <h2 id="other-resources">Other resources</h2>
-
 <ul>
 <li><a href="http://speaking.io">http://speaking.io</a></li>
 <li><a href="https://speakerdeck.com">https://speakerdeck.com</a></li>
 <li><a href="http://www.astrobetter.com/wiki/tiki-index.php?page=Presentation+Skills">Astrobetter.com Wiki - Presentation Skills</a></li>
 <li><a href="https://www.youtube.com/watch?v=meBXuTIPJQk">Creating effective slides: Design, Construction, and Use in Science - YouTube</a></li>
 </ul>
+<p>
+        Tags:
+        
+            <a href="https://smoh.space/tags/howto/">howto</a>
+        
+    </p></article>
 
-                <br>
-		<p><a href="https://smoh.space/blog/">Back to posts</a></p>
-            </div>
-            <br>
-            <div class="disqus">
-                
-            </div>
-        </div>
-    </div>
-</section>
+        </main><footer id="footer">
+    Copyright © 2016-2020 Semyeong Oh
+</footer>
 
-
-
+        
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-37308551-3', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
-  
-
-  <script type="text/javascript">
-    hljs.initHighlightingOnLoad();
-  </script>
-
-
-
-
-</body>
+    </body>
 </html>
-

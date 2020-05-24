@@ -1,195 +1,340 @@
 <!DOCTYPE html>
-<html lang="en-US">
-
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
-<meta name="author" content="Semyeong Oh">
-<meta name="description" content="The Table Access Protocol (TAP) is a way to access astronomical databases using the Astronomical Data Query Language (ADQL). The ADQL is a variant of SQL that supports querying grammar for astronomical operations.
-Simbad is a database for astronomical objects that is updated constantly from the literature. It can be accessed by various methods including TAP.
-I recently wanted to
- retrieve all related bibliography for a set of objects get all radial velocity measurements for a set of objects  It turns out this is fairly simple with pyvo and ADQL.">
-
-<meta property="og:title" content="How to use Simbad TAP Service" />
-<meta property="og:description" content="The Table Access Protocol (TAP) is a way to access astronomical databases using the Astronomical Data Query Language (ADQL). The ADQL is a variant of SQL that supports querying grammar for astronomical operations.
-Simbad is a database for astronomical objects that is updated constantly from the literature. It can be accessed by various methods including TAP.
-I recently wanted to
- retrieve all related bibliography for a set of objects get all radial velocity measurements for a set of objects  It turns out this is fairly simple with pyvo and ADQL." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://smoh.space/blog/how-to-use-simbad-tap-service/" /><meta property="article:published_time" content="2017-04-02T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2017-04-02T00:00:00&#43;00:00"/>
-
-
-<title>
-
-
-     How to use Simbad TAP Service 
-
-</title>
-<link rel="canonical" href="https://smoh.space/blog/how-to-use-simbad-tap-service/">
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
-
-
-
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
-
-
-
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Semyeong Oh&#39;s personal website">
     
-    <link rel="stylesheet" href="https://smoh.space/css/reset.css?t=2018-10-24%2000%3a07%3a51.505148%20%2b0100%20BST%20m%3d%2b0.177966840">
-    <link rel="stylesheet" href="https://smoh.space/css/pygments.css?t=2018-10-24%2000%3a07%3a51.505148%20%2b0100%20BST%20m%3d%2b0.177966840">
-    <link rel="stylesheet" href="https://smoh.space/css/main.css?t=2018-10-24%2000%3a07%3a51.505148%20%2b0100%20BST%20m%3d%2b0.177966840">
-    
-        <link rel="stylesheet" href="https://smoh.space/css/override.css?t=2018-10-24%2000%3a07%3a51.505148%20%2b0100%20BST%20m%3d%2b0.177966840">
-    
+    <link rel="shortcut icon" href="https://smoh.space/favicon.ico">
+    <style type="text/css" media="screen">
+        *, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    color: #313a3d;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #ebebeb;
+        background: #121212;
+    }
+}
+
+header#banner {
+    margin: 25px 0;
+}
+
+header#banner a {
+    color: #313a3d;
+    text-decoration: none;
+}
+
+header#banner a:hover {
+    text-decoration: underline;
+}
+
+header#banner h2 {
+    display: inline;
+    font-size: 21px;
+    font-size: 2.1rem;
+    margin: 0 8px 0 0;
+}
+
+header#banner nav {
+    display: inline-block;
+}
+
+header#banner nav ul {
+    list-style-type: none;
+    font-size: 1.05em;
+    text-transform: lowercase;
+    margin: 0;
+    padding: 0;
+}
+
+header#banner nav ul li {
+    display: inline;
+    margin: 0 3px;
+}
+
+header#banner nav ul li a {
+    color: #454545;
+}
+
+@media (prefers-color-scheme: dark) {
+    header#banner a {
+        color: #e0e0e0;
+        text-decoration: none;
+    }
+
+    header#banner nav ul li a {
+        color: #cccccc;
+    }
+}
+
+main#content a {
+    color: #007dfa;
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content a {
+        color: #00b1ed;
+    }
+}
+
+main#content a:hover {
+    text-decoration: underline;
+}
+
+main#content p {
+    color: #394548;
+    margin: 16px 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content p {
+        color: #f5f5f5;
+    }
+}
+
+main#content h1,
+main#content h2,
+main#content h3,
+main#content h4,
+main#content h5,
+main#content h6 {
+    margin-bottom: 0.5em;
+    line-height: 1.15;
+}
+
+main#content h1 + p,
+main#content h2 + p,
+main#content h3 + p,
+main#content h4 + p,
+main#content h5 + p,
+main#content h6 + p {
+    margin-top: 5px;
+}
+
+main#content h3 {
+    font-size: 19px;
+    font-size: 1.9rem;
+}
+
+/* index.html styles */
+main#content ul#posts {
+    list-style-type: none;
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin-top: 0;
+    padding: 0;
+}
+
+main#content ul#posts li {
+    margin: 5px 0;
+    padding: 0;
+}
+
+main#content ul#posts small {
+    font-size: 0.8em;
+    color: #767676;
+    margin-left: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content ul#posts small {
+        color: #a7a7a7;
+    }
+}
+
+main#content ul#posts li a {
+    text-decoration: none;
+}
+
+main#content ul#posts li a:hover {
+    color: #369aff;
+}
+
+main#content ul#posts li a:hover small {
+    color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content ul#posts li a:hover {
+        color: #21c7ff;
+    }
+}
+
+/* single.html styles */
+main#content header#post-header h1 {
+    display: block;
+    font-size: 23px;
+    font-size: 2.3rem;
+    line-height: 1.15;
+}
+
+main#content header#post-header time {
+    display: block;
+    font-size: 0.85em;
+    color: #767676;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content header#post-header time {
+        color: #a7a7a7;
+    }
+}
+
+main#content img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+main#content code,
+main#content pre {
+    font-family: 'Menlo', monospace;
+}
+
+main#content code {
+    font-size: 0.96em;
+    padding: 0 5px;
+}
+
+main#content pre {
+    display: block;
+    overflow-x: auto;
+    font-size 14px;
+    font-size: 1.4rem;
+    white-space: pre;
+    margin: 20px 0;
+    padding: 1.5rem 1.5rem;
+    line-height: 1.4;
+}
+
+main#content pre code {
+    padding: 0;
+}
+
+footer#footer {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #949494;
+    margin: 40px 0;
+}
 
 
+div.note {
+    border-left: 4px solid rgb(233, 56, 90);
+    padding-left: 10px;
+    background-color: rgb(255, 238, 241);
+    width: 95%;
+    line-height: 2em;
+}
+    </style>
 
+    <style type="text/css" media="(min-width: 770px)">
+        body {
+    width: 750px;
+    line-height: 1.5;
+}
 
-<link rel="shortcut icon"
+/* index.html styles */
+header#banner h2 {
+    font-size: 25px;
+    font-size: 2.5rem;
+}
 
-    href="https://smoh.space/img/leaf.ico"
+main#content h3 {
+    font-size: 20px;
+    font-size: 2rem;
+}
 
->
+main#content ul#posts {
+    font-size: 18px;
+    font-size: 1.8rem;
+}
 
+/* single.html styles */
+main#content header#post-header h1 {
+    font-size: 26px;
+    font-size: 2.6rem;
+}
 
+main#content img {
+    max-width: 108%;
+    margin-left: -4%;
+}
 
+main#content pre {
+    width: 108%;
+    margin-left: -4%;
+    padding: 1.5rem 2.2rem;
+}
 
+    </style>
+
+    <link rel="stylesheet" href="https://smoh.space/css/syntax.min.css">
+    <title>How to use Simbad TAP Service</title>
 </head>
-
-
-<body lang="en">
-
-<section class="header">
-    <div class="container">
-        <div class="content">
+<body><header id="banner">
+    <h2><a href="https://smoh.space">smoh.space</a></h2>
+    <nav>
+        <ul>
             
-            <a href="https://smoh.space/"><div class="name">Semyeong Oh</div></a>
             
-            <nav>
-                <ul>
-                    
-                </ul>
-            </nav>
-        </div>
-    </div>
-</section>
-
-<section class="icons">
-    <div class="container">
-        <div class="content">
-
-        
-            <a href="https://github.com/smoh" target="_blank" rel="noopener"><img class="icon" src="https://smoh.space/img/github.svg" alt="github" /></a>
-        
-
-        
-
-        
-
-        
-            <a href="https://www.linkedin.com/in/semyeong-oh-819539b9" target="_blank" rel="noopener"><img class="icon" src="https://smoh.space/img/linkedin.svg" alt="linkedin" /></a>
-        
-
-        
-
-        
-
-        
-            <a href="mailto:soh@ast.cam.ac.uk"><img class="icon" src="https://smoh.space/img/email.svg" alt="email" /></a>
-        
-
-        
-            <a href="https://smoh.space/index.xml"><img class="icon" src="https://smoh.space/img/rss.svg" alt="rss" /></a>
-        
-        
-        </div>
-    </div>
-</section>
-
-
-<section class="main post non-narrow zero-top-spacing">
-    <div class="container">
-        <div class="content">
-            <div class="front-matter">
-                <div class="title-container">
-                    <div class="page-heading">
-
-    How to use Simbad TAP Service
-
-</div>
-
-                    <div class="initials"><a href="https://smoh.space">ad</a></div>
-                </div>
-                <div class="meta">
-                    
-                    <div class="date" title='Sun Apr 2 2017 00:00:00 UTC'>Apr 2, 2017</div>
-                    
-                    
-		    <div class="reading-time"><div class="middot"></div>5 minutes read</div>
-                    
-                </div>
-            </div>
-            <div class="markdown">
-                
-
-<p>The Table Access Protocol (<a href="http://www.ivoa.net/documents/TAP/">TAP</a>) is a way to access astronomical databases using the Astronomical Data Query Language (ADQL). The <a href="http://www.ivoa.net/documents/latest/ADQL.html">ADQL</a> is a variant of SQL that supports querying grammar for astronomical operations.</p>
-
+            <li>
+                <a href="https://smoh.space/posts/">blog</a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>How to use Simbad TAP Service</h1><time>April 2, 2017</time></header><p>The Table Access Protocol (<a href="http://www.ivoa.net/documents/TAP/">TAP</a>) is a way to access astronomical databases using the Astronomical Data Query Language (ADQL). The <a href="http://www.ivoa.net/documents/latest/ADQL.html">ADQL</a> is a variant of SQL that supports querying grammar for astronomical operations.</p>
 <p><a href="http://simbad.u-strasbg.fr/simbad/">Simbad</a> is a database for astronomical objects that is updated constantly from the literature. It can be accessed by various methods including TAP.</p>
-
 <p>I recently wanted to</p>
-
 <ul>
 <li>retrieve all related bibliography for a set of objects</li>
 <li>get all radial velocity measurements for a set of objects</li>
 </ul>
-
 <p>It turns out this is fairly simple with <a href="http://pyvo.readthedocs.io">pyvo</a> and ADQL.</p>
-
 <p>Pyvo provides a collection of python modules related to <a href="https://en.wikipedia.org/wiki/Virtual_observatory">Virtual observatory</a>. For Simbad, we can simply create an instance of its <code>vo.dal.TAPService</code> class with the <code>baseurl</code> set to TAP endpoint.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">%</span>matplotlib inline
+<span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+plt<span style="color:#ff79c6">.</span>style<span style="color:#ff79c6">.</span>use(<span style="color:#f1fa8c">&#34;seaborn-talk&#34;</span>)
+<span style="color:#ff79c6">import</span> pandas <span style="color:#ff79c6">as</span> pd
+<span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
 
-<pre><code class="language-python">%matplotlib inline
-import matplotlib.pyplot as plt
-plt.style.use(&quot;seaborn-talk&quot;)
-import pandas as pd
-import numpy as np
-
-from astropy.table import Table
-import pyvo as vo
+<span style="color:#ff79c6">from</span> astropy.table <span style="color:#ff79c6">import</span> Table
+<span style="color:#ff79c6">import</span> pyvo <span style="color:#ff79c6">as</span> vo
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">simbadtap <span style="color:#ff79c6">=</span> vo<span style="color:#ff79c6">.</span>dal<span style="color:#ff79c6">.</span>TAPService(<span style="color:#f1fa8c">&#34;http://simbad.u-strasbg.fr/simbad/sim-tap&#34;</span>)
+</code></pre></div><p>Let&rsquo;s see all the available tables.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># get all tables</span>
+<span style="color:#6272a4"># tables method of TAPService parses the response of /tables,</span>
+<span style="color:#6272a4"># but it will result in exception due to a possible bug in astropy vo</span>
+<span style="color:#6272a4"># but you can also just query the database for this info</span>
+result <span style="color:#ff79c6">=</span> simbadtap<span style="color:#ff79c6">.</span>run_sync(<span style="color:#f1fa8c">&#34;select * from TAP_SCHEMA.tables where schema_name not like &#39;TAP_SCHEMA&#39;&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34;number of tables available = {:d}&#34;</span><span style="color:#ff79c6">.</span>format(<span style="color:#8be9fd;font-style:italic">len</span>(result<span style="color:#ff79c6">.</span>table)))
+result<span style="color:#ff79c6">.</span>table[:<span style="color:#bd93f9">5</span>][<span style="color:#f1fa8c">&#39;table_name&#39;</span>,<span style="color:#f1fa8c">&#39;description&#39;</span>]
+</code></pre></div><pre><code>number of tables available = 42
 </code></pre>
-
-<pre><code class="language-python">simbadtap = vo.dal.TAPService(&quot;http://simbad.u-strasbg.fr/simbad/sim-tap&quot;)
-</code></pre>
-
-<p>Let&rsquo;s see all the available tables.</p>
-
-<pre><code class="language-python"># get all tables
-# tables method of TAPService parses the response of /tables,
-# but it will result in exception due to a possible bug in astropy vo
-# but you can also just query the database for this info
-result = simbadtap.run_sync(&quot;select * from TAP_SCHEMA.tables where schema_name not like 'TAP_SCHEMA'&quot;)
-</code></pre>
-
-<pre><code class="language-python">print(&quot;number of tables available = {:d}&quot;.format(len(result.table)))
-result.table[:5]['table_name','description']
-</code></pre>
-
-<pre><code>number of tables available = 42
-</code></pre>
-
-<p>&lt;Table masked=True length=5&gt;
+<p>&lt;Table masked=True length=5&gt;</p>
 <table id="table4619165144" class="table-striped table-bordered table-condensed">
 <thead><tr><th>table_name</th><th>description</th></tr></thead>
 <thead><tr><th>object</th><th>object</th></tr></thead>
@@ -198,39 +343,29 @@ result.table[:5]['table_name','description']
 <tr><td>ids</td><td>all names concatenated with pipe</td></tr>
 <tr><td>alltypes</td><td>all object types concatenated with pipe</td></tr>
 <tr><td>otypedef</td><td>all names and definitions for the object types</td></tr>
-</table></p>
-
+</table>
 <h2 id="get-all-velocity-measurements">Get all velocity measurements</h2>
-
 <p>The relevant table for RV measurements is <code>mesVelocities</code>. We also need <code>ident</code> table which has
 two columns, <code>oidref</code> and <code>id</code> where <code>oidref</code> is unique internally, and <code>id</code> is all possible known
 names of sources. we use <code>oidref</code> to crossmatch tables. We can first check what columns are in <code>mesVelocities</code> and <code>ident</code> tables.</p>
-
-<pre><code class="language-python">def pprint_columns_description(tablename):
-    &quot;&quot;&quot;Pretty print column description table&quot;&quot;&quot;
-    rows = []
-    for col in simbadtap.run_sync(
-        &quot;select top 0 * from {}&quot;.format(tablename)).table.itercols():
-        rows.append([col.name, col.dtype.str, col.description])
-    tt = Table(rows=rows, names=['colname', 'dtype','description'])
-    return tt
-</code></pre>
-
-<pre><code class="language-python">pprint_columns_description(&quot;ident&quot;)
-</code></pre>
-
-<p>&lt;Table length=2&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">pprint_columns_description</span>(tablename):
+    <span style="color:#f1fa8c">&#34;&#34;&#34;Pretty print column description table&#34;&#34;&#34;</span>
+    rows <span style="color:#ff79c6">=</span> []
+    <span style="color:#ff79c6">for</span> col <span style="color:#ff79c6">in</span> simbadtap<span style="color:#ff79c6">.</span>run_sync(
+        <span style="color:#f1fa8c">&#34;select top 0 * from {}&#34;</span><span style="color:#ff79c6">.</span>format(tablename))<span style="color:#ff79c6">.</span>table<span style="color:#ff79c6">.</span>itercols():
+        rows<span style="color:#ff79c6">.</span>append([col<span style="color:#ff79c6">.</span>name, col<span style="color:#ff79c6">.</span>dtype<span style="color:#ff79c6">.</span>str, col<span style="color:#ff79c6">.</span>description])
+    tt <span style="color:#ff79c6">=</span> Table(rows<span style="color:#ff79c6">=</span>rows, names<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;colname&#39;</span>, <span style="color:#f1fa8c">&#39;dtype&#39;</span>,<span style="color:#f1fa8c">&#39;description&#39;</span>])
+    <span style="color:#ff79c6">return</span> tt
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pprint_columns_description(<span style="color:#f1fa8c">&#34;ident&#34;</span>)
+</code></pre></div><p>&lt;Table length=2&gt;</p>
 <table id="table4540428128" class="table-striped table-bordered table-condensed">
 <thead><tr><th>colname</th><th>dtype</th><th>description</th></tr></thead>
 <thead><tr><th>str6</th><th>str3</th><th>str26</th></tr></thead>
 <tr><td>id</td><td>|O</td><td>Identifier</td></tr>
 <tr><td>oidref</td><td>&lt;i8</td><td>Object internal identifier</td></tr>
-</table></p>
-
-<pre><code class="language-python">pprint_columns_description(&quot;mesVelocities&quot;)
-</code></pre>
-
-<p>&lt;Table length=20&gt;
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pprint_columns_description(<span style="color:#f1fa8c">&#34;mesVelocities&#34;</span>)
+</code></pre></div><p>&lt;Table length=20&gt;</p>
 <table id="table4539563760" class="table-striped table-bordered table-condensed">
 <thead><tr><th>colname</th><th>dtype</th><th>description</th></tr></thead>
 <thead><tr><th>str14</th><th>str3</th><th>str71</th></tr></thead>
@@ -254,53 +389,37 @@ names of sources. we use <code>oidref</code> to crossmatch tables. We can first 
 <tr><td>velValue</td><td>&lt;f8</td><td>Velocity</td></tr>
 <tr><td>velValue_prec</td><td>&lt;i2</td><td>Precision (# of decimal positions) associated with the column velValue</td></tr>
 <tr><td>wdomain</td><td>|O</td><td>Wavelength domain (Rad,mm,IR,Opt,UV,XRay,Gam)</td></tr>
-</table></p>
-
+</table>
 <p>We will query stars by their HIP or TYC identifiers. For this, we make a table with one column (<code>name</code>), and upload this in order to crossmatch in VOTable format.</p>
-
-<pre><code class="language-python">identable = Table.read(&quot;test.xml&quot;, format='votable')
-identable[:3]
-</code></pre>
-
-<p>&lt;Table masked=True length=3&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">identable <span style="color:#ff79c6">=</span> Table<span style="color:#ff79c6">.</span>read(<span style="color:#f1fa8c">&#34;test.xml&#34;</span>, format<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;votable&#39;</span>)
+identable[:<span style="color:#bd93f9">3</span>]
+</code></pre></div><p>&lt;Table masked=True length=3&gt;</p>
 <table id="table4540675576" class="table-striped table-bordered table-condensed">
 <thead><tr><th>name</th></tr></thead>
 <thead><tr><th>str15</th></tr></thead>
 <tr><td>TYC 8036-1001-1</td></tr>
 <tr><td>TYC 1772-508-1</td></tr>
 <tr><td>TYC 2911-1339-1</td></tr>
-</table></p>
-
+</table>
 <p>Grab <code>oidref</code> from <code>ident</code> table, and query <code>mesVelocities</code>.</p>
-
-<pre><code class="language-python">query = &quot;&quot;&quot;
-SELECT t.name,bibcode, nbmes, obsdate, qual, quality,
-    velType, velValue, velValue_prec, remark, remarks, ident.oidref
-FROM TAP_UPLOAD.mytable as t
-    JOIN ident ON t.name = ident.id
-    JOIN mesVelocities ON mesVelocities.oidref = ident.oidref
-&quot;&quot;&quot;
-</code></pre>
-
-<pre><code class="language-python">%%time
-result = simbadtap.run_sync(query, uploads={&quot;mytable&quot;:('inline', 'test.xml')})
-</code></pre>
-
-<pre><code>CPU times: user 178 ms, sys: 11 ms, total: 189 ms
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">query <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span><span style="color:#f1fa8c">SELECT t.name,bibcode, nbmes, obsdate, qual, quality,
+</span><span style="color:#f1fa8c">    velType, velValue, velValue_prec, remark, remarks, ident.oidref
+</span><span style="color:#f1fa8c">FROM TAP_UPLOAD.mytable as t
+</span><span style="color:#f1fa8c">    JOIN ident ON t.name = ident.id
+</span><span style="color:#f1fa8c">    JOIN mesVelocities ON mesVelocities.oidref = ident.oidref
+</span><span style="color:#f1fa8c">&#34;&#34;&#34;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">%%</span>time
+result <span style="color:#ff79c6">=</span> simbadtap<span style="color:#ff79c6">.</span>run_sync(query, uploads<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#34;mytable&#34;</span>:(<span style="color:#f1fa8c">&#39;inline&#39;</span>, <span style="color:#f1fa8c">&#39;test.xml&#39;</span>)})
+</code></pre></div><pre><code>CPU times: user 178 ms, sys: 11 ms, total: 189 ms
 Wall time: 3.56 s
 </code></pre>
-
 <p>Even for about 10k stars, this is very fast. We can access <code>astropy.table.Table</code> instance of the result as <code>result.table</code>. Better yet, because I know there are multiple measurements for some stars, I can convert it to <code>pandas.DataFrame</code> for further inspection.</p>
-
-<pre><code class="language-python">dfrv = result.table.to_pandas()
-# decode all bytestrings
-dfrv = dfrv.apply(lambda x: x.str.decode('utf-8') if x.dtype==object else x)
-</code></pre>
-
-<pre><code class="language-python">dfrv.groupby(&quot;quality&quot;)['name'].describe()
-</code></pre>
-
-<pre><code>quality        
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dfrv <span style="color:#ff79c6">=</span> result<span style="color:#ff79c6">.</span>table<span style="color:#ff79c6">.</span>to_pandas()
+<span style="color:#6272a4"># decode all bytestrings</span>
+dfrv <span style="color:#ff79c6">=</span> dfrv<span style="color:#ff79c6">.</span>apply(<span style="color:#ff79c6">lambda</span> x: x<span style="color:#ff79c6">.</span>str<span style="color:#ff79c6">.</span>decode(<span style="color:#f1fa8c">&#39;utf-8&#39;</span>) <span style="color:#ff79c6">if</span> x<span style="color:#ff79c6">.</span>dtype<span style="color:#ff79c6">==</span><span style="color:#8be9fd;font-style:italic">object</span> <span style="color:#ff79c6">else</span> x)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dfrv<span style="color:#ff79c6">.</span>groupby(<span style="color:#f1fa8c">&#34;quality&#34;</span>)[<span style="color:#f1fa8c">&#39;name&#39;</span>]<span style="color:#ff79c6">.</span>describe()
+</code></pre></div><pre><code>quality        
          count                 744
          unique                438
          top        TYC 2342-544-1
@@ -327,38 +446,23 @@ E        count                  31
          freq                    2
 Name: name, dtype: object
 </code></pre>
-
 <p>I see that there are quite a few stars with multiple quality A measurements. Let&rsquo;s see if they agree.</p>
-
-<pre><code class="language-python">rvA = dfrv.loc[dfrv.quality == 'A'].groupby(&quot;name&quot;)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rvA <span style="color:#ff79c6">=</span> dfrv<span style="color:#ff79c6">.</span>loc[dfrv<span style="color:#ff79c6">.</span>quality <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;A&#39;</span>]<span style="color:#ff79c6">.</span>groupby(<span style="color:#f1fa8c">&#34;name&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># see if multiple quality A measurements agree with each other</span>
+<span style="color:#6272a4"># make sure bibcode for the measurements are different</span>
+rvAmulti <span style="color:#ff79c6">=</span> rvA<span style="color:#ff79c6">.</span>filter(<span style="color:#ff79c6">lambda</span> x:x<span style="color:#ff79c6">.</span>bibcode<span style="color:#ff79c6">.</span>unique()<span style="color:#ff79c6">.</span>size<span style="color:#ff79c6">&gt;</span><span style="color:#bd93f9">1</span>)
+<span style="color:#ff79c6">print</span>(rvAmulti<span style="color:#ff79c6">.</span>name<span style="color:#ff79c6">.</span>unique()<span style="color:#ff79c6">.</span>size)
+</code></pre></div><pre><code>96
 </code></pre>
-
-<pre><code class="language-python"># see if multiple quality A measurements agree with each other
-# make sure bibcode for the measurements are different
-rvAmulti = rvA.filter(lambda x:x.bibcode.unique().size&gt;1)
-print(rvAmulti.name.unique().size)
-</code></pre>
-
-<pre><code>96
-</code></pre>
-
-<pre><code class="language-python"># undersample for presentation
-rvAmulti.iloc[::10].boxplot(&quot;velValue&quot;, &quot;name&quot;, rot=90);
-</code></pre>
-
-<p><img src="https://smoh.space/img/simbad_tap_examples_25_0.png" alt="png" /></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#6272a4"># undersample for presentation</span>
+rvAmulti<span style="color:#ff79c6">.</span>iloc[::<span style="color:#bd93f9">10</span>]<span style="color:#ff79c6">.</span>boxplot(<span style="color:#f1fa8c">&#34;velValue&#34;</span>, <span style="color:#f1fa8c">&#34;name&#34;</span>, rot<span style="color:#ff79c6">=</span><span style="color:#bd93f9">90</span>);
+</code></pre></div><p><img src="/img/simbad_tap_examples_25_0.png" alt="png"></p>
 <p>..and they do for the most part!</p>
-
 <h2 id="get-all-bibliographies">Get all bibliographies</h2>
-
 <p>Same goes for querying all bibliographies related to a set of objects.
 This time, we need to query <code>ref</code> and also need <code>has_ref</code> in order to crossmatch <code>oidref</code> with <code>oidbibref</code>, which is cross-identified with <code>ref.oidbib</code>.</p>
-
-<pre><code class="language-python">pprint_columns_description(&quot;ref&quot;)
-</code></pre>
-
-<p>&lt;Table length=10&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pprint_columns_description(<span style="color:#f1fa8c">&#34;ref&#34;</span>)
+</code></pre></div><p>&lt;Table length=10&gt;</p>
 <table id="table4542089648" class="table-striped table-bordered table-condensed">
 <thead><tr><th>colname</th><th>dtype</th><th>description</th></tr></thead>
 <thead><tr><th>str9</th><th>str3</th><th>str28</th></tr></thead>
@@ -372,12 +476,9 @@ This time, we need to query <code>ref</code> and also need <code>has_ref</code> 
 <tr><td>title</td><td>|O</td><td>Title</td></tr>
 <tr><td>volume</td><td>&lt;i4</td><td>volume number</td></tr>
 <tr><td>year</td><td>&lt;i2</td><td>Publication year</td></tr>
-</table></p>
-
-<pre><code class="language-python">pprint_columns_description('has_ref')
-</code></pre>
-
-<p>&lt;Table length=5&gt;
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pprint_columns_description(<span style="color:#f1fa8c">&#39;has_ref&#39;</span>)
+</code></pre></div><p>&lt;Table length=5&gt;</p>
 <table id="table4579551720" class="table-striped table-bordered table-condensed">
 <thead><tr><th>colname</th><th>dtype</th><th>description</th></tr></thead>
 <thead><tr><th>str10</th><th>str3</th><th>str33</th></tr></thead>
@@ -386,55 +487,41 @@ This time, we need to query <code>ref</code> and also need <code>has_ref</code> 
 <tr><td>oidref</td><td>&lt;i8</td><td>Object internal identifier</td></tr>
 <tr><td>ref_flag</td><td>&lt;i2</td><td>flag</td></tr>
 <tr><td>ref_raw_id</td><td>|O</td><td>id like it appears in the article</td></tr>
-</table></p>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">query <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span><span style="color:#f1fa8c">SELECT t.name, bibcode, journal, title,  year, volume, doi
+</span><span style="color:#f1fa8c">FROM TAP_UPLOAD.mytable as t
+</span><span style="color:#f1fa8c">    JOIN ident ON t.name = ident.id
+</span><span style="color:#f1fa8c">    JOIN has_ref ON has_ref.oidref = ident.oidref
+</span><span style="color:#f1fa8c">    JOIN ref ON ref.oidbib = has_ref.oidbibref
+</span><span style="color:#f1fa8c">&#34;&#34;&#34;</span>
+</code></pre></div><div class="note">
+The ipynb file for this post is available to download
+<a href="/ipynb/simbad_tap_examples.ipynb" download>here</a>.
+</div><p>
+        Tags:
+        
+            <a href="https://smoh.space/tags/howto/">howto</a>
+        
+    </p></article>
 
-<pre><code class="language-python">query = &quot;&quot;&quot;
-SELECT t.name, bibcode, journal, title,  year, volume, doi
-FROM TAP_UPLOAD.mytable as t
-    JOIN ident ON t.name = ident.id
-    JOIN has_ref ON has_ref.oidref = ident.oidref
-    JOIN ref ON ref.oidbib = has_ref.oidbibref
-&quot;&quot;&quot;
-</code></pre>
+        </main><footer id="footer">
+    Copyright © 2016-2020 Semyeong Oh
+</footer>
 
-<p>The ipynb file for this post is available <a href="https://github.com/smoh/notebook/blob/master/simbad_tap_examples.ipynb">here</a>.</p>
-
-                <br>
-		<p><a href="https://smoh.space/blog/">Back to posts</a></p>
-            </div>
-            <br>
-            <div class="disqus">
-                
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
+        
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-37308551-3', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
-  
-
-  <script type="text/javascript">
-    hljs.initHighlightingOnLoad();
-  </script>
-
-
-
-
-</body>
+    </body>
 </html>
-

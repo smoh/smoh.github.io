@@ -1,35 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Semyeong Oh</title>
+    <title>Home on smoh.space</title>
     <link>https://smoh.space/</link>
-    <description>Recent content on Semyeong Oh</description>
+    <description>Recent content in Home on smoh.space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 13 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://smoh.space/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Research</title>
-      <link>https://smoh.space/research/</link>
-      <pubDate>Fri, 13 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://smoh.space/research/</guid>
-      <description>I&amp;rsquo;m broadly interested in what we can learn about the Milky Way and its stars using data from the exciting astrometric space mission Gaia together with on-going spectroscopic surveys such as APOGEE(-2), GALAH and Gaia-ESO. Particularly I&amp;rsquo;m interested in ways to find, characterize comoving stars, and understand their statistics in Galactic context.
-My past talks are available here. Here is a recent one &amp;ndash; please see this paper for the up-to-date writeup of Kronos &amp;amp; Krios.</description>
-    </item>
     
     <item>
-      <title>How to template a LaTeX paper with cookiecutter</title>
-      <link>https://smoh.space/blog/how-to-template-a-latex-paper-with-cookiecutter/</link>
-      <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
+      <title>Biased coins and truncated data</title>
+      <link>https://smoh.space/blog/coinflips/</link>
+      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://smoh.space/blog/how-to-template-a-latex-paper-with-cookiecutter/</guid>
-      <description>Cookiecutter is a command line utility written in python to create templated files and directory structures.
-Why? When I finally have something to write about as a paper to be submitted to a journal, I found myself copying the files from my previous paper again and again, delete much of it (contents of the old paper), and modify some parts for the new paper. Of course, it&amp;rsquo;s not that hard to do that everytime, but cookiecutter is a useful tool to streamline this.</description>
+      <guid>https://smoh.space/blog/coinflips/</guid>
+      <description>I was inspired by a recent paper by Boubert &amp;amp; Everall 2020 to consider the inference of the probability of a biased coin.
+The problem is the following: given a table of $N$ coin flip experiments where you have, for each experiment, the number of times it was flipped and the number of times it showed heads, we want to infer the probability that this coin shows head.
+Let&amp;rsquo;s call</description>
     </item>
+    
+    
     
     <item>
       <title>How to use Simbad TAP Service</title>
@@ -43,6 +37,8 @@ I recently wanted to
  retrieve all related bibliography for a set of objects get all radial velocity measurements for a set of objects  It turns out this is fairly simple with pyvo and ADQL.</description>
     </item>
     
+    
+    
     <item>
       <title>How to give a research talk</title>
       <link>https://smoh.space/blog/how-to-give-a-research-talk/</link>
@@ -54,6 +50,8 @@ The goal is to get the message across. The message is not information, but the i
 Message first The first thing to do when preparing a talk is to decide the content of the talk. I find it helpful to answer the following questions.</description>
     </item>
     
+    
+    
     <item>
       <title>Co-moving stars in Gaia DR 1</title>
       <link>https://smoh.space/blog/co-moving-stars-in-gaia-dr-1/</link>
@@ -62,6 +60,7 @@ Message first The first thing to do when preparing a talk is to decide the conte
       <guid>https://smoh.space/blog/co-moving-stars-in-gaia-dr-1/</guid>
       <description></description>
     </item>
+    
     
   </channel>
 </rss>

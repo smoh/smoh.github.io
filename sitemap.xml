@@ -1,19 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://smoh.space/research/</loc>
-    <lastmod>2017-10-13T00:00:00+00:00</lastmod>
+    <loc>https://smoh.space/blog/coinflips/</loc>
+    <lastmod>2020-05-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://smoh.space/blog/how-to-template-a-latex-paper-with-cookiecutter/</loc>
-    <lastmod>2017-09-27T00:00:00+00:00</lastmod>
+    <loc>https://smoh.space/posts/</loc>
+    <lastmod>2020-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://smoh.space/</loc>
+    <lastmod>2020-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://smoh.space/tags/statistics/</loc>
+    <lastmod>2020-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://smoh.space/tags/</loc>
+    <lastmod>2020-05-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://smoh.space/blog/how-to-use-simbad-tap-service/</loc>
+    <lastmod>2017-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://smoh.space/tags/howto/</loc>
     <lastmod>2017-04-02T00:00:00+00:00</lastmod>
   </url>
   
@@ -28,33 +48,8 @@
   </url>
   
   <url>
-    <loc>https://smoh.space/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smoh.space/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://smoh.space/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://smoh.space/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://smoh.space/</loc>
-    <lastmod>2017-10-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://smoh.space/blog/</loc>
-    <lastmod>2017-09-27T00:00:00+00:00</lastmod>
+    <loc>https://smoh.space/tags/vis/</loc>
+    <lastmod>2016-12-05T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>

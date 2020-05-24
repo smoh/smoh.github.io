@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Semyeong Oh&#39;s personal website">
+    
+    <link rel="shortcut icon" href="https://smoh.space/favicon.ico">
+    <style type="text/css" media="screen">
+        *, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    color: #313a3d;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #ebebeb;
+        background: #121212;
+    }
+}
+
+header#banner {
+    margin: 25px 0;
+}
+
+header#banner a {
+    color: #313a3d;
+    text-decoration: none;
+}
+
+header#banner a:hover {
+    text-decoration: underline;
+}
+
+header#banner h2 {
+    display: inline;
+    font-size: 21px;
+    font-size: 2.1rem;
+    margin: 0 8px 0 0;
+}
+
+header#banner nav {
+    display: inline-block;
+}
+
+header#banner nav ul {
+    list-style-type: none;
+    font-size: 1.05em;
+    text-transform: lowercase;
+    margin: 0;
+    padding: 0;
+}
+
+header#banner nav ul li {
+    display: inline;
+    margin: 0 3px;
+}
+
+header#banner nav ul li a {
+    color: #454545;
+}
+
+@media (prefers-color-scheme: dark) {
+    header#banner a {
+        color: #e0e0e0;
+        text-decoration: none;
+    }
+
+    header#banner nav ul li a {
+        color: #cccccc;
+    }
+}
+
+main#content a {
+    color: #007dfa;
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content a {
+        color: #00b1ed;
+    }
+}
+
+main#content a:hover {
+    text-decoration: underline;
+}
+
+main#content p {
+    color: #394548;
+    margin: 16px 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content p {
+        color: #f5f5f5;
+    }
+}
+
+main#content h1,
+main#content h2,
+main#content h3,
+main#content h4,
+main#content h5,
+main#content h6 {
+    margin-bottom: 0.5em;
+    line-height: 1.15;
+}
+
+main#content h1 + p,
+main#content h2 + p,
+main#content h3 + p,
+main#content h4 + p,
+main#content h5 + p,
+main#content h6 + p {
+    margin-top: 5px;
+}
+
+main#content h3 {
+    font-size: 19px;
+    font-size: 1.9rem;
+}
+
+/* index.html styles */
+main#content ul#posts {
+    list-style-type: none;
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin-top: 0;
+    padding: 0;
+}
+
+main#content ul#posts li {
+    margin: 5px 0;
+    padding: 0;
+}
+
+main#content ul#posts small {
+    font-size: 0.8em;
+    color: #767676;
+    margin-left: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content ul#posts small {
+        color: #a7a7a7;
+    }
+}
+
+main#content ul#posts li a {
+    text-decoration: none;
+}
+
+main#content ul#posts li a:hover {
+    color: #369aff;
+}
+
+main#content ul#posts li a:hover small {
+    color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content ul#posts li a:hover {
+        color: #21c7ff;
+    }
+}
+
+/* single.html styles */
+main#content header#post-header h1 {
+    display: block;
+    font-size: 23px;
+    font-size: 2.3rem;
+    line-height: 1.15;
+}
+
+main#content header#post-header time {
+    display: block;
+    font-size: 0.85em;
+    color: #767676;
+}
+
+@media (prefers-color-scheme: dark) {
+    main#content header#post-header time {
+        color: #a7a7a7;
+    }
+}
+
+main#content img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+main#content code,
+main#content pre {
+    font-family: 'Menlo', monospace;
+}
+
+main#content code {
+    font-size: 0.96em;
+    padding: 0 5px;
+}
+
+main#content pre {
+    display: block;
+    overflow-x: auto;
+    font-size 14px;
+    font-size: 1.4rem;
+    white-space: pre;
+    margin: 20px 0;
+    padding: 1.5rem 1.5rem;
+    line-height: 1.4;
+}
+
+main#content pre code {
+    padding: 0;
+}
+
+footer#footer {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #949494;
+    margin: 40px 0;
+}
+
+
+div.note {
+    border-left: 4px solid rgb(233, 56, 90);
+    padding-left: 10px;
+    background-color: rgb(255, 238, 241);
+    width: 95%;
+    line-height: 2em;
+}
+    </style>
+
+    <style type="text/css" media="(min-width: 770px)">
+        body {
+    width: 750px;
+    line-height: 1.5;
+}
+
+/* index.html styles */
+header#banner h2 {
+    font-size: 25px;
+    font-size: 2.5rem;
+}
+
+main#content h3 {
+    font-size: 20px;
+    font-size: 2rem;
+}
+
+main#content ul#posts {
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+
+/* single.html styles */
+main#content header#post-header h1 {
+    font-size: 26px;
+    font-size: 2.6rem;
+}
+
+main#content img {
+    max-width: 108%;
+    margin-left: -4%;
+}
+
+main#content pre {
+    width: 108%;
+    margin-left: -4%;
+    padding: 1.5rem 2.2rem;
+}
+
+    </style>
+
+    <link rel="stylesheet" href="https://smoh.space/css/syntax.min.css">
+    <title>Biased coins and truncated data</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://smoh.space">smoh.space</a></h2>
+    <nav>
+        <ul>
+            
+            
+            <li>
+                <a href="https://smoh.space/posts/">blog</a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Biased coins and truncated data</h1><time>May 24, 2020</time></header><p>I was inspired by a recent paper by <a href="https://arxiv.org/abs/2005.08983">Boubert &amp; Everall 2020</a> to consider
+the inference of the probability of a biased coin.</p>
+<p>The problem is the following: given a table of $N$ coin flip experiments where you have, for each experiment,
+the number of times it was flipped and the number of times it showed heads, we want to infer
+the probability that this coin shows head.</p>
+<p>Let&rsquo;s call</p>
+<ul>
+<li>$i = 1,\ldots,N$: index of the experiments</li>
+<li>$n_i$: the number of times the coin was flipped in the $i$-th experiment</li>
+<li>$k_i$: the number of times it showed head in the $i$-th experiment</li>
+<li>$\theta$: the probability that this coin shows head (what we want to know).</li>
+</ul>
+<p>The probability that the coin shows head $k$ times is described by a Binomial distribution, $B(n_i,,\theta)$:</p>
+<p>$$k_i \sim B(n_i,,\theta)$$</p>
+<p>For the prior of $\theta$, let&rsquo;s assume uniform between 0 and 1.</p>
+<p>The model is quite simple in stan.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">import</span> pystan
+<span style="color:#ff79c6">import</span> numpy <span style="color:#ff79c6">as</span> np
+<span style="color:#ff79c6">from</span> scipy <span style="color:#ff79c6">import</span> stats
+<span style="color:#ff79c6">%</span>matplotlib inline 
+<span style="color:#ff79c6">import</span> matplotlib.pyplot <span style="color:#ff79c6">as</span> plt
+<span style="color:#ff79c6">import</span> seaborn <span style="color:#ff79c6">as</span> sns
+plt<span style="color:#ff79c6">.</span>style<span style="color:#ff79c6">.</span>use(<span style="color:#f1fa8c">&#39;smoh&#39;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model <span style="color:#ff79c6">=</span> pystan<span style="color:#ff79c6">.</span>StanModel(model_code<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;&#39;&#39;
+</span><span style="color:#f1fa8c">data {
+</span><span style="color:#f1fa8c">    // number of coins
+</span><span style="color:#f1fa8c">    int&lt;lower=0&gt; N;
+</span><span style="color:#f1fa8c">    // number of flips
+</span><span style="color:#f1fa8c">    int n[N];
+</span><span style="color:#f1fa8c">    // number of heads
+</span><span style="color:#f1fa8c">    int k[N];
+</span><span style="color:#f1fa8c">}
+</span><span style="color:#f1fa8c">parameters {
+</span><span style="color:#f1fa8c">    real&lt;lower=0,upper=1&gt; theta;
+</span><span style="color:#f1fa8c">}
+</span><span style="color:#f1fa8c">model {
+</span><span style="color:#f1fa8c">    for (i in 1:N) {
+</span><span style="color:#f1fa8c">        k[i] ~ binomial(n[i], theta);
+</span><span style="color:#f1fa8c">    }
+</span><span style="color:#f1fa8c">}
+</span><span style="color:#f1fa8c">&#39;&#39;&#39;</span>)
+</code></pre></div><pre><code>INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_1ae8f841dadf99bac88119a5390bb387 NOW.
+</code></pre>
+<p>We can simulate data with <code>scipy.stats.binom</code>.
+If we have no truncation on the data, different experiments do not matter.
+If the coin was flipped 20 times in a hundred experiment, it is the same as one experiment of flipping it
+2000 times.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">theta <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.63</span>
+N <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">100</span>
+n_i <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>ones(N, dtype<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">int</span>)<span style="color:#ff79c6">*</span><span style="color:#bd93f9">20</span>
+k_i <span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>rvs(n<span style="color:#ff79c6">=</span>n_i, p<span style="color:#ff79c6">=</span>theta)
+data <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(N<span style="color:#ff79c6">=</span>N, n<span style="color:#ff79c6">=</span>n_i, k<span style="color:#ff79c6">=</span>k_i)
+
+<span style="color:#6272a4"># combine all experiment to one</span>
+data_one <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(N<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, n<span style="color:#ff79c6">=</span>[n_i<span style="color:#ff79c6">.</span>sum()], k<span style="color:#ff79c6">=</span>[k_i<span style="color:#ff79c6">.</span>sum()])
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ropt <span style="color:#ff79c6">=</span> model<span style="color:#ff79c6">.</span>optimizing(data<span style="color:#ff79c6">=</span>data)
+ropt_one <span style="color:#ff79c6">=</span> model<span style="color:#ff79c6">.</span>optimizing(data<span style="color:#ff79c6">=</span>data_one)
+<span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#39;theta from {} experiments of {} flips = {}&#39;</span><span style="color:#ff79c6">.</span>format(N, n_i[<span style="color:#bd93f9">0</span>],ropt[<span style="color:#f1fa8c">&#39;theta&#39;</span>]))
+<span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#39;theta from {} experiments of {} flips = {}&#39;</span><span style="color:#ff79c6">.</span>format(<span style="color:#bd93f9">1</span>, n_i<span style="color:#ff79c6">.</span>sum(),ropt[<span style="color:#f1fa8c">&#39;theta&#39;</span>]))
+</code></pre></div><pre><code>theta from 100 experiments of 20 flips = 0.6589996177901194
+theta from 1 experiments of 2000 flips = 0.6589996177901194
+</code></pre>
+<p>In fact, the uniform distribution is a special case of Beta distribution $\mathrm{Beta}(\alpha,,\beta)$ when
+$\alpha=\beta=1$.
+Because Beta distributions are conjugate priors of Binomial distribution,
+the posterior distribution is also a Beta distribution with
+$\mathrm{Beta}(\alpha+k,,\beta+n-k)$ where $n=\Sigma n_i$ and $k=\Sigma k_i$.
+The posterior mean is $\frac{\alpha+k}{\alpha+\beta+n}$, which approaches $\frac{k}{n}$ as $n \to \infty$, as it should intuitively.</p>
+<p>We can check that stan posterior sample matches this expectation.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">r1 <span style="color:#ff79c6">=</span> model<span style="color:#ff79c6">.</span>sampling(data<span style="color:#ff79c6">=</span>data)
+r2 <span style="color:#ff79c6">=</span> model<span style="color:#ff79c6">.</span>sampling(data<span style="color:#ff79c6">=</span>data_one)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">3</span>))
+sns<span style="color:#ff79c6">.</span>kdeplot(r1[<span style="color:#f1fa8c">&#39;theta&#39;</span>], label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;$(N,\,n_i)=(100,\,20)$&#39;</span>,ax<span style="color:#ff79c6">=</span>ax)
+sns<span style="color:#ff79c6">.</span>kdeplot(r2[<span style="color:#f1fa8c">&#39;theta&#39;</span>], label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;$(N,\,n_i)=(1,\,2000)$&#39;</span>, ax<span style="color:#ff79c6">=</span>ax)
+
+x <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#ff79c6">*</span>ax<span style="color:#ff79c6">.</span>get_xlim(), <span style="color:#bd93f9">64</span>)
+pdfx<span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>beta(<span style="color:#bd93f9">1</span><span style="color:#ff79c6">+</span>k_i<span style="color:#ff79c6">.</span>sum(), <span style="color:#bd93f9">1</span><span style="color:#ff79c6">+</span>n_i<span style="color:#ff79c6">.</span>sum()<span style="color:#ff79c6">-</span>k_i<span style="color:#ff79c6">.</span>sum())<span style="color:#ff79c6">.</span>pdf(x)
+ax<span style="color:#ff79c6">.</span>plot(x, pdfx, <span style="color:#f1fa8c">&#39;k-&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;$\mathrm{Beta}(\alpha+k,\,\beta+n-k)$&#39;</span>);
+
+ax<span style="color:#ff79c6">.</span>axvline(theta, lw<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>)
+ax<span style="color:#ff79c6">.</span>legend(loc<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;upper right&#39;</span>, fontsize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">12</span>);
+ax<span style="color:#ff79c6">.</span>set(ylim<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">0</span>,<span style="color:#bd93f9">70</span>), xlabel<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;$\theta$&#39;</span>, ylabel<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;pdf&#39;</span>);
+</code></pre></div><p><img src="coinflips_files/coinflips_8_0.png" alt="png"></p>
+<p>Now, what if it turns out that the experiment is not reported at all when the number of times it showed head is less than $k_t$ times?
+As explained in <a href="https://arxiv.org/abs/2005.08983">Boubert &amp; Everall 2020</a>, we need to
+adjust the likelihood function by dividing it by
+$$\int_{k_t}^n p(k,|n,,\theta)$$
+(so that it will integrate to 1 from $k_t$ not $1$).</p>
+<p>Stan supports truncated data for 1D distributions[1]
+so the modification is simple:</p>
+<p>[1] <a href="https://mc-stan.org/docs/2_20/stan-users-guide/truncated-data-section.html">https://mc-stan.org/docs/2_20/stan-users-guide/truncated-data-section.html</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">modelth <span style="color:#ff79c6">=</span> pystan<span style="color:#ff79c6">.</span>StanModel(model_code<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;&#39;&#39;
+</span><span style="color:#f1fa8c">data {
+</span><span style="color:#f1fa8c">    // number of coins
+</span><span style="color:#f1fa8c">    int&lt;lower=0&gt; N;
+</span><span style="color:#f1fa8c">    // number of flips
+</span><span style="color:#f1fa8c">    int n[N];
+</span><span style="color:#f1fa8c">    // number of heads
+</span><span style="color:#f1fa8c">    int k[N];
+</span><span style="color:#f1fa8c">    // truncation threshold
+</span><span style="color:#f1fa8c">    int kthresh;
+</span><span style="color:#f1fa8c">}
+</span><span style="color:#f1fa8c">parameters {
+</span><span style="color:#f1fa8c">    real&lt;lower=0,upper=1&gt; theta;
+</span><span style="color:#f1fa8c">}
+</span><span style="color:#f1fa8c">model {
+</span><span style="color:#f1fa8c">    for (i in 1:N) {
+</span><span style="color:#f1fa8c">        k[i] ~ binomial(n[i], theta) T[kthresh,];
+</span><span style="color:#f1fa8c">    }
+</span><span style="color:#f1fa8c">}
+</span><span style="color:#f1fa8c">&#39;&#39;&#39;</span>)
+</code></pre></div><pre><code>INFO:pystan:COMPILING THE C++ CODE FOR MODEL anon_model_881cc4f08b358f1b7d00072aacadc09b NOW.
+</code></pre>
+<p>Now, because a record of an experiment might be missing,
+it is no longer valid to treat the sum of experiments as one &lsquo;master&rsquo; experiment.</p>
+<p>What do we expect for our inference of $\theta$ if we use the truncated data
+yet use the old (wrong) model that does not account for missing data?
+The data will be biased towards high $k_i$ and this will bias $\theta$ high as well.</p>
+<p>Let&rsquo;s simulate this truncated data as well and see if this is the case.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">theta <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.63</span>
+N <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">100</span>
+n_i <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>ones(N, dtype<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">int</span>)<span style="color:#ff79c6">*</span><span style="color:#bd93f9">10</span>
+k_i <span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>rvs(n<span style="color:#ff79c6">=</span>n_i, p<span style="color:#ff79c6">=</span>theta)
+k_t <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>
+
+<span style="color:#6272a4"># repeat until i have N experiments replacing truncated</span>
+<span style="color:#ff79c6">while</span> (k_i<span style="color:#ff79c6">&lt;</span>k_t)<span style="color:#ff79c6">.</span>sum()<span style="color:#ff79c6">&gt;</span><span style="color:#bd93f9">0</span>:
+    bad <span style="color:#ff79c6">=</span> k_i <span style="color:#ff79c6">&lt;</span> k_t
+    <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#39;replacing {}&#39;</span><span style="color:#ff79c6">.</span>format(bad<span style="color:#ff79c6">.</span>sum()))
+    k_i_new <span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>rvs(n<span style="color:#ff79c6">=</span>n_i[bad], p<span style="color:#ff79c6">=</span>theta)
+    k_i[bad] <span style="color:#ff79c6">=</span> k_i_new
+data <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(N<span style="color:#ff79c6">=</span>N, n<span style="color:#ff79c6">=</span>n_i, k<span style="color:#ff79c6">=</span>k_i,)
+</code></pre></div><pre><code>replacing 13
+replacing 2
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">r1 <span style="color:#ff79c6">=</span> model<span style="color:#ff79c6">.</span>sampling(data<span style="color:#ff79c6">=</span>data)
+data[<span style="color:#f1fa8c">&#39;kthresh&#39;</span>] <span style="color:#ff79c6">=</span> k_t
+r2 <span style="color:#ff79c6">=</span> modelth<span style="color:#ff79c6">.</span>sampling(data<span style="color:#ff79c6">=</span>data)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">3</span>))
+sns<span style="color:#ff79c6">.</span>kdeplot(r1[<span style="color:#f1fa8c">&#39;theta&#39;</span>], label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;old model&#39;</span>,ax<span style="color:#ff79c6">=</span>ax)
+sns<span style="color:#ff79c6">.</span>kdeplot(r2[<span style="color:#f1fa8c">&#39;theta&#39;</span>], label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;truncated data model&#39;</span>, ax<span style="color:#ff79c6">=</span>ax)
+
+ax<span style="color:#ff79c6">.</span>axvline(theta, lw<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>)
+ax<span style="color:#ff79c6">.</span>legend(loc<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;upper right&#39;</span>, fontsize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">12</span>);
+ax<span style="color:#ff79c6">.</span>set(ylim<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">0</span>,<span style="color:#bd93f9">70</span>), xlabel<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;$\theta$&#39;</span>, ylabel<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;pdf&#39;</span>);
+</code></pre></div><p><img src="coinflips_files/coinflips_14_0.png" alt="png"></p>
+<p>Indeed, the old model that does not account for missing data infers
+a higher $\theta$ than we should whereas the new model recovers the correct value.</p>
+<p>This will be more prounounced as we repeat more experiments and the posterior
+distribution gets sharper.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rs_old <span style="color:#ff79c6">=</span> []
+rs_new <span style="color:#ff79c6">=</span> []
+<span style="color:#6272a4"># for N in [100, 1000, 10000]:</span>
+<span style="color:#ff79c6">for</span> N <span style="color:#ff79c6">in</span> [<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">1000</span>]:
+    n_i <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>ones(N, dtype<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">int</span>)<span style="color:#ff79c6">*</span><span style="color:#bd93f9">10</span>
+    k_i <span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>rvs(n<span style="color:#ff79c6">=</span>n_i, p<span style="color:#ff79c6">=</span>theta)
+    k_t <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>
+
+    <span style="color:#6272a4"># repeat until i have N experiments replacing truncated</span>
+    <span style="color:#ff79c6">while</span> (k_i<span style="color:#ff79c6">&lt;</span>k_t)<span style="color:#ff79c6">.</span>sum()<span style="color:#ff79c6">&gt;</span><span style="color:#bd93f9">0</span>:
+        bad <span style="color:#ff79c6">=</span> k_i <span style="color:#ff79c6">&lt;</span> k_t
+        k_i_new <span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>rvs(n<span style="color:#ff79c6">=</span>n_i[bad], p<span style="color:#ff79c6">=</span>theta)
+        k_i[bad] <span style="color:#ff79c6">=</span> k_i_new
+    data_tmp <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(N<span style="color:#ff79c6">=</span>N, n<span style="color:#ff79c6">=</span>n_i, k<span style="color:#ff79c6">=</span>k_i,)
+
+    <span style="color:#ff79c6">%</span>time r1tmp <span style="color:#ff79c6">=</span> model<span style="color:#ff79c6">.</span>sampling(data<span style="color:#ff79c6">=</span>data_tmp)
+    data_tmp[<span style="color:#f1fa8c">&#39;kthresh&#39;</span>] <span style="color:#ff79c6">=</span> k_t
+    <span style="color:#ff79c6">%</span>time r2tmp <span style="color:#ff79c6">=</span> modelth<span style="color:#ff79c6">.</span>sampling(data<span style="color:#ff79c6">=</span>data_tmp)
+    rs_old<span style="color:#ff79c6">.</span>append(r1tmp)
+    rs_new<span style="color:#ff79c6">.</span>append(r2tmp)
+</code></pre></div><pre><code>CPU times: user 89.2 ms, sys: 523 ms, total: 612 ms
+Wall time: 819 ms
+CPU times: user 96 ms, sys: 438 ms, total: 534 ms
+Wall time: 1.59 s
+CPU times: user 97 ms, sys: 446 ms, total: 543 ms
+Wall time: 1.19 s
+CPU times: user 124 ms, sys: 485 ms, total: 609 ms
+Wall time: 8.68 s
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">3</span>))
+<span style="color:#ff79c6">for</span> i, (r1, r2) <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">enumerate</span>(<span style="color:#8be9fd;font-style:italic">zip</span>(rs_old, rs_new)):
+    sns<span style="color:#ff79c6">.</span>kdeplot(r1[<span style="color:#f1fa8c">&#39;theta&#39;</span>], c<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;C0&#39;</span>, lw<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span> <span style="color:#ff79c6">if</span> i<span style="color:#ff79c6">&gt;</span><span style="color:#bd93f9">0</span> <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">2</span>)
+    sns<span style="color:#ff79c6">.</span>kdeplot(r2[<span style="color:#f1fa8c">&#39;theta&#39;</span>], ax<span style="color:#ff79c6">=</span>ax, c<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;C1&#39;</span>,lw<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span> <span style="color:#ff79c6">if</span> i<span style="color:#ff79c6">&gt;</span><span style="color:#bd93f9">0</span> <span style="color:#ff79c6">else</span> <span style="color:#bd93f9">2</span>)
+
+ax<span style="color:#ff79c6">.</span>axvline(theta, lw<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>)
+ax<span style="color:#ff79c6">.</span>set(xlabel<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;$\theta$&#39;</span>, ylabel<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;pdf&#39;</span>);
+</code></pre></div><pre><code>/home/soh/.conda/envs/nitro/lib/python3.7/site-packages/seaborn/distributions.py:323: MatplotlibDeprecationWarning: Saw kwargs ['c', 'color'] which are all aliases for 'color'.  Kept value from 'color'.  Passing multiple aliases for the same property will raise a TypeError in 3.3.
+  ax.plot(x, y, color=color, label=label, **kwargs)
+</code></pre>
+<p><img src="coinflips_files/coinflips_17_1.png" alt="png"></p>
+<p>The correct model converges to the true value while the wrong model will bias $\theta$ higher.</p>
+<p>Note that if $\theta n_i$ (the expectation value of $k_i$ for $i$-th experiment) is much larger than
+the threshold $k_t$, than the threshold is not going to filter out much data and
+it would not matter if we use the corret model that accounts for the missing data or not.</p>
+<p>What is acutally happening here?</p>
+<p>The posterior distribution is</p>
+<p>$$ p(\theta,| {n_i,,k_i}) \propto \prod _{i=1}^{N}  p (k_i ,|,n_i,,\theta) p(\theta) $$
+where
+$$p (k_i,|,n_i,,\theta) = \frac{1}{1 - p(k_i \lt 5,|,n_i,,\theta)} {n \choose k} \theta^k \theta^{n-k}$$</p>
+<p>Assuming uniform prior, $p(\theta) = 1$ between 0 and 1, let&rsquo;s have a look at
+what the normalization factor that applies the data truncation does.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, (ax1,ax2) <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>, figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">8</span>,<span style="color:#bd93f9">3</span>))
+thetas <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#bd93f9">0.01</span>,<span style="color:#bd93f9">0.99</span>,<span style="color:#bd93f9">201</span>)
+pdfs<span style="color:#ff79c6">=</span>[]
+n_flip <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>
+
+<span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> np<span style="color:#ff79c6">.</span>arange(k_t, <span style="color:#bd93f9">11</span>):
+    ax1<span style="color:#ff79c6">.</span>plot(thetas, stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>pmf(k, n_flip, thetas), <span style="color:#f1fa8c">&#39;-&#39;</span>,lw<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>,
+             c<span style="color:#ff79c6">=</span>plt<span style="color:#ff79c6">.</span>cm<span style="color:#ff79c6">.</span>plasma((k<span style="color:#ff79c6">-</span>k_t)<span style="color:#ff79c6">/</span>(n_flip<span style="color:#ff79c6">-</span>k_t)));
+
+I <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span><span style="color:#ff79c6">-</span>stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>cdf(k_t<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span> , n_flip, thetas)
+ax1<span style="color:#ff79c6">.</span>plot(thetas, I, c<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;k&#39;</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;$1 - p(k_i &lt; 5\,|\,n_i,\,\theta)$&#39;</span>)
+ax1<span style="color:#ff79c6">.</span>legend(loc<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;upper left&#39;</span>, fontsize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">12</span>)
+ax1<span style="color:#ff79c6">.</span>set(ylim<span style="color:#ff79c6">=</span>(None, <span style="color:#bd93f9">1.2</span>))
+<span style="color:#ff79c6">for</span> k <span style="color:#ff79c6">in</span> np<span style="color:#ff79c6">.</span>arange(k_t, <span style="color:#bd93f9">11</span>):
+    ax2<span style="color:#ff79c6">.</span>plot(thetas, stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>pmf(k, <span style="color:#bd93f9">10</span>, thetas)<span style="color:#ff79c6">/</span>I, <span style="color:#f1fa8c">&#39;-&#39;</span>, lw<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>,
+             c<span style="color:#ff79c6">=</span>plt<span style="color:#ff79c6">.</span>cm<span style="color:#ff79c6">.</span>plasma((k<span style="color:#ff79c6">-</span>k_t)<span style="color:#ff79c6">/</span>(n_flip<span style="color:#ff79c6">-</span>k_t)), label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;k={}&#39;</span><span style="color:#ff79c6">.</span>format(k));
+
+ax2<span style="color:#ff79c6">.</span>legend(loc<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">0.2</span>,<span style="color:#bd93f9">0.6</span>), fontsize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">12</span>, ncol<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+ax2<span style="color:#ff79c6">.</span>set(ylim<span style="color:#ff79c6">=</span>(None, <span style="color:#bd93f9">1.6</span>)) 
+<span style="color:#ff79c6">for</span> cax <span style="color:#ff79c6">in</span> (ax1, ax2):
+    cax<span style="color:#ff79c6">.</span>set(xlabel<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;$\theta$&#39;</span>)
+</code></pre></div><p><img src="coinflips_files/coinflips_20_0.png" alt="png"></p>
+<p>For each possible $k_i \ge k_t = 5$ upto $n_i=10$,
+the plot above shows the usual Binomial probability mass function (pmf) on the left.
+The normalization factor is the reciprocal of the black line, which shows $1 - p(k_i \lt 5,|,n_i,,\theta)$.
+After the correction is applied, each pmf on the left of the same color is changed to that on the right.</p>
+<p>In essense, the correction compensates for the fact that
+the observation of $k_i$ heads may be statistical fluctuation above the mean at lower $\theta$.
+We see that if $\theta$ is large enough to put typical number of $k_i$ above the threshold,
+the correction disappears, i.e., it goes to 1, and
+it is most dramatic for low $\theta$ at $k_i$ near the threshold.</p>
+<p>Since we know the shape of the pdf for each $i$, we can multiply all pdf
+to get the posterior (without normalization).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">from</span> scipy.special <span style="color:#ff79c6">import</span> logsumexp
+pdfs<span style="color:#ff79c6">=</span>[]
+<span style="color:#ff79c6">for</span> n_flip, k <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(data[<span style="color:#f1fa8c">&#39;n&#39;</span>], data[<span style="color:#f1fa8c">&#39;k&#39;</span>]):
+    I <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span><span style="color:#ff79c6">-</span>stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>cdf(k_t<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>, n_flip, thetas)
+    pdfs<span style="color:#ff79c6">.</span>append(stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>pmf(k, n_flip, thetas)<span style="color:#ff79c6">/</span>I)
+
+a<span style="color:#ff79c6">=</span>np<span style="color:#ff79c6">.</span>log(np<span style="color:#ff79c6">.</span>array(pdfs))<span style="color:#ff79c6">.</span>sum(axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>)
+imax <span style="color:#ff79c6">=</span> a<span style="color:#ff79c6">.</span>argmax()
+<span style="color:#6272a4"># np.exp(-9)=0.0001234...; ignore ranges where pdf falls below this time the peak value</span>
+ii <span style="color:#ff79c6">=</span> a<span style="color:#ff79c6">-</span>a[imax]<span style="color:#ff79c6">&gt;-</span><span style="color:#bd93f9">9</span>   
+a<span style="color:#ff79c6">-=</span>a<span style="color:#ff79c6">.</span>max()   <span style="color:#6272a4"># arbitrary scaling...</span>
+a<span style="color:#ff79c6">=</span>np<span style="color:#ff79c6">.</span>exp(a)
+a[<span style="color:#ff79c6">~</span>ii]<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax <span style="color:#ff79c6">=</span>plt<span style="color:#ff79c6">.</span>subplots(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">3</span>))
+plt<span style="color:#ff79c6">.</span>plot(thetas, a<span style="color:#ff79c6">*</span><span style="color:#bd93f9">20</span>, label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;$\propto \prod_i \, p(k_i,\,|\,n_i,\,\theta)$&#39;</span>)
+sns<span style="color:#ff79c6">.</span>kdeplot(r2[<span style="color:#f1fa8c">&#39;theta&#39;</span>], label<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;from stan&#39;</span>)
+plt<span style="color:#ff79c6">.</span>axvline(theta)
+plt<span style="color:#ff79c6">.</span>legend(fontsize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">12</span>);
+plt<span style="color:#ff79c6">.</span>xlabel(<span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;$\theta$&#39;</span>);
+</code></pre></div><p><img src="coinflips_files/coinflips_23_0.png" alt="png"></p>
+<p>The two match as they should.</p>
+<p>If there is an absolute threhold $k&gt;k_t$, this will affect experiments where you expect $k$ to be near $k_t$ whereas large-$n_i$ experiments will not be affected.</p>
+<p>Let&rsquo;s carry out a comparison to explore this: collect 1000 experiments in total, but</p>
+<ul>
+<li>in case 1: throw 10 times in 100 experiments</li>
+<li>in case 2: throw 100 times in 10 experiments</li>
+</ul>
+<p>and set the threshold at $k_t = 5$ with $\theta=0.2$ (Deliberately chosen to see the effect of data truncation).</p>
+<p>Although the total number of flips is the same,
+there is much higher chance that all experiments in case 1 will not be reported as we would typically expect $n_i \theta = 2$ heads
+with some spread.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">simulate</span>(theta, N, n, k_t):
+    <span style="color:#f1fa8c">&#39;&#39;&#39;
+</span><span style="color:#f1fa8c">    Throw n flips each time.
+</span><span style="color:#f1fa8c">    Threshold at k&gt;=k_t.
+</span><span style="color:#f1fa8c">    Fill until I have N records.
+</span><span style="color:#f1fa8c">    &#39;&#39;&#39;</span>
+    n_i <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>ones(N, dtype<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">int</span>)<span style="color:#ff79c6">*</span>n
+    k_i <span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>rvs(n<span style="color:#ff79c6">=</span>n_i, p<span style="color:#ff79c6">=</span>theta)
+    
+    nbads <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>
+    <span style="color:#6272a4"># repeat until i have N experiments replacing truncated</span>
+    <span style="color:#ff79c6">while</span> (k_i<span style="color:#ff79c6">&lt;</span>k_t)<span style="color:#ff79c6">.</span>sum()<span style="color:#ff79c6">&gt;</span><span style="color:#bd93f9">0</span>:
+        bad <span style="color:#ff79c6">=</span> k_i <span style="color:#ff79c6">&lt;</span> k_t
+        nbads <span style="color:#ff79c6">+=</span> bad<span style="color:#ff79c6">.</span>sum()
+        k_i_new <span style="color:#ff79c6">=</span> stats<span style="color:#ff79c6">.</span>binom<span style="color:#ff79c6">.</span>rvs(n<span style="color:#ff79c6">=</span>n_i[bad], p<span style="color:#ff79c6">=</span>theta)
+        k_i[bad] <span style="color:#ff79c6">=</span> k_i_new
+    <span style="color:#ff79c6">print</span>(<span style="color:#f1fa8c">&#34;theta={:.3f} N={:5d} n={:5d} k_t={:3d}: replaced {}&#34;</span><span style="color:#ff79c6">.</span>format(
+        theta, N, n, k_t, nbads))
+    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">dict</span>(N<span style="color:#ff79c6">=</span>N, n<span style="color:#ff79c6">=</span>n_i, k<span style="color:#ff79c6">=</span>k_i,kthresh<span style="color:#ff79c6">=</span>k_t)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">theta<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0.2</span>
+data1 <span style="color:#ff79c6">=</span> simulate(theta, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">5</span>)
+data2 <span style="color:#ff79c6">=</span> simulate(theta, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">5</span>)
+data3 <span style="color:#ff79c6">=</span> simulate(theta, <span style="color:#bd93f9">500</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">5</span>)
+</code></pre></div><pre><code>theta=0.200 N=  100 n=   10 k_t=  5: replaced 2893
+theta=0.200 N=   10 n=  100 k_t=  5: replaced 0
+theta=0.200 N=  500 n=   10 k_t=  5: replaced 15411
+</code></pre>
+<p>Indeed, to collect 100, there were 2893 experiments that were truncated because $k_i$ did not make the threshlold.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result <span style="color:#ff79c6">=</span> {}
+result[<span style="color:#f1fa8c">&#39;$(N,\,n_i)$ = (100, 10)&#39;</span>] <span style="color:#ff79c6">=</span> modelth<span style="color:#ff79c6">.</span>sampling(data<span style="color:#ff79c6">=</span>data1)
+result[<span style="color:#f1fa8c">&#39;$(N,\,n_i)$ = (10, 100)&#39;</span>] <span style="color:#ff79c6">=</span> modelth<span style="color:#ff79c6">.</span>sampling(data<span style="color:#ff79c6">=</span>data2)
+result[<span style="color:#f1fa8c">&#39;$(N,\,n_i)$ = (500, 10)&#39;</span>] <span style="color:#ff79c6">=</span> modelth<span style="color:#ff79c6">.</span>sampling(data<span style="color:#ff79c6">=</span>data3)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig, ax <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>subplots(figsize<span style="color:#ff79c6">=</span>(<span style="color:#bd93f9">5</span>,<span style="color:#bd93f9">4</span>))
+<span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> result<span style="color:#ff79c6">.</span>items():
+    sns<span style="color:#ff79c6">.</span>kdeplot(v[<span style="color:#f1fa8c">&#39;theta&#39;</span>], label<span style="color:#ff79c6">=</span>k, ax<span style="color:#ff79c6">=</span>ax)
+ax<span style="color:#ff79c6">.</span>axvline(theta, c<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;k&#39;</span>, lw<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>);
+ax<span style="color:#ff79c6">.</span>legend(loc<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;upper right&#39;</span>, fontsize<span style="color:#ff79c6">=</span><span style="color:#bd93f9">12</span>);
+ax<span style="color:#ff79c6">.</span>set(xlabel<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;$\theta$&#39;</span>);
+</code></pre></div><p><img src="coinflips_files/coinflips_29_0.png" alt="png"></p>
+<p>As expected, in this case it&rsquo;s better to have $(N,,n_i)=(10,,100)$ than
+$(N,,n_i)=(100,,10)$ although the total number of flips is the same.
+However, even in the case where each experiment is at the risk of being discarded due to
+data truncation, if we have enough data and we account for the data truncation,
+we can still recover more $\theta$ more precisely: we start to recover $\theta$ with
+comparable confidence interval when 10-flip experiment records are collected 5 times more ($N=500$).</p>
+<p>This cross-over between large-$N$-small-$n_i$ and small-$N$-large-$n_i$
+depends on values of $\theta$ and $k_t$.</p>
+<div class="note">
+The ipynb file for this post is available to download
+<a href="/ipynb/coinflips.ipynb" download>here</a>.
+</div>
+<p>
+        Tags:
+        
+            <a href="https://smoh.space/tags/statistics/">statistics</a>
+        
+    </p></article>
+
+        </main><footer id="footer">
+    Copyright © 2016-2020 Semyeong Oh
+</footer>
+
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+        
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-37308551-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    </body>
+</html>
