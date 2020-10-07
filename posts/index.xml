@@ -6,9 +6,20 @@
     <description>Recent content in blog on smoh.space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://smoh.space/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>Linear models: a study note</title>
+      <link>https://smoh.space/posts/linear-models-a-study-note/</link>
+      <pubDate>Wed, 07 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://smoh.space/posts/linear-models-a-study-note/</guid>
+      <description></description>
+    </item>
     
     
     
