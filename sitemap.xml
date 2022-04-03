@@ -1,60 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>https://smoh.space/posts/linear-models/</loc>
+    <lastmod>2020-10-07T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://smoh.space/posts/</loc>
     <lastmod>2020-10-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://smoh.space/</loc>
     <lastmod>2020-10-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://smoh.space/posts/linear-models-a-study-note/</loc>
-    <lastmod>2020-10-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://smoh.space/tags/statistics/</loc>
     <lastmod>2020-10-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://smoh.space/tags/</loc>
     <lastmod>2020-10-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://smoh.space/posts/coinflips/</loc>
     <lastmod>2020-05-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://smoh.space/posts/how-to-use-simbad-tap-service/</loc>
+  </url><url>
+    <loc>https://smoh.space/posts/simbad_tap_examples/</loc>
     <lastmod>2017-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://smoh.space/tags/howto/</loc>
     <lastmod>2017-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://smoh.space/posts/how-to-give-a-research-talk/</loc>
-    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://smoh.space/posts/co-moving-stars-in-gaia-dr-1/</loc>
+  </url><url>
+    <loc>https://smoh.space/posts/gaia-comoving-stars/</loc>
     <lastmod>2016-12-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://smoh.space/tags/vis/</loc>
     <lastmod>2016-12-05T00:00:00+00:00</lastmod>
   </url>
-  
 </urlset>

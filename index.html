@@ -1,315 +1,33 @@
 <!DOCTYPE html>
 <html><head>
-	<meta name="generator" content="Hugo 0.71.0" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal website">
+	<meta name="generator" content="Hugo 0.95.0" />
     
-    <link rel="shortcut icon" href="https://smoh.space/favicon.ico">
-    <link rel="alternate" type="application/rss+xml" href="https://smoh.space/index.xml" title="smoh.space">
-    <style type="text/css" media="screen">
-        *, *:before, *:after {
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 62.5%;
-}
-
-body {
-    font-size: 16px;
-    font-size: 1.6rem;
-    font-family: 'Helvetica Neue', 'Arial', sans-serif;
-    color: #313a3d;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 16px;
-    line-height: 1.6;
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        color: #ebebeb;
-        background: #121212;
-    }
-}
-
-header#banner {
-    margin: 25px 0;
-}
-
-header#banner a {
-    color: #313a3d;
-    text-decoration: none;
-}
-
-header#banner a:hover {
-    text-decoration: underline;
-}
-
-header#banner h2 {
-    display: inline;
-    font-size: 21px;
-    font-size: 2.1rem;
-    margin: 0 8px 0 0;
-}
-
-header#banner nav {
-    display: inline-block;
-}
-
-header#banner nav ul {
-    list-style-type: none;
-    font-size: 1.05em;
-    text-transform: lowercase;
-    margin: 0;
-    padding: 0;
-}
-
-header#banner nav ul li {
-    display: inline;
-    margin: 0 3px;
-}
-
-header#banner nav ul li a {
-    color: #454545;
-}
-
-@media (prefers-color-scheme: dark) {
-    header#banner a {
-        color: #e0e0e0;
-        text-decoration: none;
-    }
-
-    header#banner nav ul li a {
-        color: #cccccc;
-    }
-}
-
-main#content a {
-    color: #007dfa;
-    text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    main#content a {
-        color: #00b1ed;
-    }
-}
-
-main#content a:hover {
-    text-decoration: underline;
-}
-
-main#content p {
-    color: #394548;
-    margin: 16px 0;
-}
-
-@media (prefers-color-scheme: dark) {
-    main#content p {
-        color: #f5f5f5;
-    }
-}
-
-main#content h1,
-main#content h2,
-main#content h3,
-main#content h4,
-main#content h5,
-main#content h6 {
-    margin-bottom: 0.5em;
-    line-height: 1.15;
-}
-
-main#content h1 + p,
-main#content h2 + p,
-main#content h3 + p,
-main#content h4 + p,
-main#content h5 + p,
-main#content h6 + p {
-    margin-top: 5px;
-}
-
-main#content h3 {
-    font-size: 19px;
-    font-size: 1.9rem;
-}
-
-/* index.html styles */
-main#content ul#posts {
-    list-style-type: none;
-    font-size: 16px;
-    font-size: 1.6rem;
-    margin-top: 0;
-    padding: 0;
-}
-
-main#content ul#posts li {
-    margin: 5px 0;
-    padding: 0;
-}
-
-main#content ul#posts small {
-    font-size: 0.8em;
-    color: #767676;
-    margin-left: 10px;
-}
-
-@media (prefers-color-scheme: dark) {
-    main#content ul#posts small {
-        color: #a7a7a7;
-    }
-}
-
-main#content ul#posts li a {
-    text-decoration: none;
-}
-
-main#content ul#posts li a:hover {
-    color: #369aff;
-}
-
-main#content ul#posts li a:hover small {
-    color: inherit;
-}
-
-@media (prefers-color-scheme: dark) {
-    main#content ul#posts li a:hover {
-        color: #21c7ff;
-    }
-}
-
-/* single.html styles */
-main#content header#post-header h1 {
-    display: block;
-    font-size: 23px;
-    font-size: 2.3rem;
-    line-height: 1.15;
-}
-
-main#content header#post-header time {
-    display: block;
-    font-size: 0.85em;
-    color: #767676;
-}
-
-@media (prefers-color-scheme: dark) {
-    main#content header#post-header time {
-        color: #a7a7a7;
-    }
-}
-
-main#content img {
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-main#content code,
-main#content pre {
-    font-family: 'Menlo', monospace;
-}
-
-main#content code {
-    font-size: 0.96em;
-    padding: 0 5px;
-}
-
-main#content pre {
-    display: block;
-    overflow-x: auto;
-    font-size 14px;
-    font-size: 1.4rem;
-    white-space: pre;
-    margin: 20px 0;
-    padding: 1.5rem 1.5rem;
-    line-height: 1.4;
-}
-
-main#content pre code {
-    padding: 0;
-}
-
-footer#footer {
-    font-size: 14px;
-    font-size: 1.4rem;
-    font-weight: 300;
-    color: #949494;
-    margin: 40px 0;
-}
-
-
-div.note {
-    border-left: 4px solid rgb(233, 56, 90);
-    padding-left: 10px;
-    background-color: rgb(255, 238, 241);
-    color: black;
-    width: 95%;
-    line-height: 2em;
-}
-    </style>
-
-    <style type="text/css" media="(min-width: 770px)">
-        body {
-    width: 750px;
-    line-height: 1.5;
-}
-
-/* index.html styles */
-header#banner h2 {
-    font-size: 25px;
-    font-size: 2.5rem;
-}
-
-main#content h3 {
-    font-size: 20px;
-    font-size: 2rem;
-}
-
-main#content ul#posts {
-    font-size: 18px;
-    font-size: 1.8rem;
-}
-
-/* single.html styles */
-main#content header#post-header h1 {
-    font-size: 26px;
-    font-size: 2.6rem;
-}
-
-main#content img {
-    max-width: 108%;
-    margin-left: -4%;
-}
-
-main#content pre {
-    width: 108%;
-    margin-left: -4%;
-    padding: 1.5rem 2.2rem;
-}
-
-    </style>
-
-    <link rel="stylesheet" href="https://smoh.space/css/syntax.min.css">
-    <title>Home</title>
-</head>
-<body><header id="banner">
-    <h2><a href="https://smoh.space">smoh.space</a></h2>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    
+    <link rel="stylesheet" href="https://smoh.space/css/custom.css">
+</head><body><header>
     <nav>
-        <ul>
-            
-            
-            <li>
-                <a href="https://smoh.space/posts/">blog</a>
-            </li>
-            
-        </ul>
+
+        <a href="/">Home</a>
+        <a href="/posts">Posts</a>
+
+        <h1>Semyeong Oh</h1>
+        
     </nav>
-</header>
-<main id="content">
-<h1 id="semyeong-oh">Semyeong Oh</h1>
+</header><main>
+<ul>
+<li>
+  Links: <a href="https://github.com/smoh" data-goatcounter-click="home-github">Github</a>,
+    <a href="https://linkedin.com/in/semyeong-oh-819539b9/" data-goatcounter-click="home-linkedin">Linkedin</a>
+</li>
+<li>
+  Publications: <a href="http://orcid.org/0000-0001-7790-5308">ORCID</a>,
+  <a href="https://ui.adsabs.harvard.edu/public-libraries/Slk-d10nSAe9qtCnvfJd8w" data-goatcounter-click="home-ads">ADS</a>
+</li>
+<li>E-mail: soh "at" eml.cc</li>
+</ul>
 <p>I am a postdoctoral research associate at the
-<a href="https://www.ast.cam.ac.uk">Institute of Astronomy</a>, the University of Cambridge.</p>
+<a href="https://www.ast.cam.ac.uk">Institute of Astronomy</a> at the University of Cambridge.</p>
 <p>I am interested in star clusters, binary stars and making novel inferences
 on data using machine learning (in a broad sense).
 Recently, I have</p>
@@ -326,20 +44,16 @@ Applying this to Gaia DR1, we found some new clusters within the Solar neighbour
 <a href="https://ui.adsabs.harvard.edu/abs/2017AJ....153..257O/abstract">[paper]</a> <a href="https://github.com/smoh/gaia-comoving-stars">[code]</a> <a href="https://smoh.space/vis/gaia-comoving-stars/">[visualization]</a></li>
 </ul>
 <p>A full list of publications is available at <a href="https://ui.adsabs.harvard.edu/public-libraries/Slk-d10nSAe9qtCnvfJd8w">ADS</a>.</p>
-<h2 id="get-in-touch">Get in touch</h2>
-<p>Find me on
-<a href="https://github.com/smoh">Github</a> /
-<a href="https://linkedin.com/in/semyeong-oh-819539b9/">LinkedIn</a> /
-<a href="http://orcid.org/0000-0001-7790-5308">ORCID</a>.</p>
-<p>You can contact me via e-mail: <code>soh &quot;at&quot; ast.cam.ac.uk</code>.</p>
 
 
+	</main><footer>
+    <p>© 2016-2022 Semyeong Oh / 
+        Built with <a href="https://gohugo.io">Hugo</a> and <a href="https://simplecss.org/">Simple.css</a>.</p>
+    <p>This website is hosted on <a href="http://github.com/smoh/smoh.github.io">Github</a>.</p>
 
-        </main><footer id="footer">
-    Copyright © 2016-2020 Semyeong Oh
 </footer>
 
-        <script data-goatcounter="https://smohspace.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-    </body>
+
+</body>
+
 </html>
